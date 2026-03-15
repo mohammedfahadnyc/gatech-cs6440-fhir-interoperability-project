@@ -102,6 +102,12 @@ The API starts on:
 http://127.0.0.1:5000
 ```
 
+Swagger UI:
+
+```text
+http://127.0.0.1:5000/apidocs/
+```
+
 ## Typical Local Flow
 
 1. Install dependencies.

@@ -25,6 +25,7 @@ Subsequent runs from the repo root:
 ```
 
 This starts PostgreSQL and then runs the API at `http://127.0.0.1:5000`.
+Swagger UI is available at `http://127.0.0.1:5000/apidocs/`.
 
 ## What Is Built
 

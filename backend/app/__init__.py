@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
+from flasgger import Swagger
 from flask_jwt_extended import JWTManager
 
 from app.config import Config
 from app.db.database import db
+from app.docs import SWAGGER_CONFIG, SWAGGER_TEMPLATE
 from app.services.seed_service import ensure_seed_data
 
 jwt = JWTManager()
@@ -15,6 +17,7 @@ def create_app(config_class=Config):
     # Central app wiring lives here so the backend can boot from `python run.py`.
     db.init_app(app)
     jwt.init_app(app)
+    Swagger(app, config=SWAGGER_CONFIG, template=SWAGGER_TEMPLATE)
 
     from app.routes.auth_routes import auth_bp
     from app.routes.chart_routes import chart_bp
@@ -28,6 +31,21 @@ def create_app(config_class=Config):
 
     @app.route("/health", methods=["GET"])
     def health_check():
+        """
+        Health check endpoint.
+        ---
+        tags:
+          - System
+        responses:
+          200:
+            description: API is healthy
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: ok
+        """
         return jsonify({"status": "ok"})
 
     with app.app_context():

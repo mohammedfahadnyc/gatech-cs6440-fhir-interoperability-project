@@ -20,6 +20,62 @@ def _parse_date(value, fallback):
 @import_bp.route("/import", methods=["POST"])
 @role_required("clinician", "admin")
 def import_emr_payload():
+    """
+    Import EMR-style JSON and convert it to stored FHIR resources.
+    ---
+    tags:
+      - Import
+    security:
+      - Bearer: []
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+              example: George Burdell
+            patient_id:
+              type: integer
+              example: 1
+            dob:
+              type: string
+              example: 1978-04-12
+            gender:
+              type: string
+              example: male
+            a1c:
+              type: number
+              example: 7.4
+            medications:
+              type: array
+              items:
+                type: string
+              example:
+                - Metformin
+            diagnosis:
+              type: string
+              example: Type 2 Diabetes Mellitus
+            note:
+              type: string
+              example: Imported follow-up note from simulated Athena feed
+            source_system:
+              type: string
+              example: Athena
+    responses:
+      201:
+        description: EMR payload imported
+      400:
+        description: Missing patient name
+      401:
+        description: Missing or invalid token
+      403:
+        description: Forbidden
+    """
     payload = request.get_json(silent=True) or {}
 
     name = (payload.get("name") or "").strip()
