@@ -44,6 +44,9 @@ This starts PostgreSQL and then runs the API at `http://127.0.0.1:5000`.
   - `conditions`
   - `notes`
 - EMR import endpoint that converts simple JSON into FHIR resources automatically
+- current-user endpoint for frontend role/patient resolution
+- patient summary endpoint for lightweight dashboard stats
+- FHIR Bundle export endpoint for standards-compliant interoperability output
 - Seed script that creates:
   - 2 clinician users
   - 5 patient users

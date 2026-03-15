@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 
+from app.middleware.rbac import get_current_user, role_required
 from app.services.auth_service import authenticate_user, build_token
 
 auth_bp = Blueprint("auth", __name__)
@@ -19,3 +20,9 @@ def login():
         return jsonify({"error": "Invalid credentials"}), 401
 
     return jsonify({"token": build_token(user), "user": user.to_dict()})
+
+
+@auth_bp.route("/me", methods=["GET"])
+@role_required("clinician", "admin", "patient")
+def me():
+    return jsonify(get_current_user().to_dict())

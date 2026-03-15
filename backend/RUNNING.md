@@ -68,6 +68,18 @@ This seeded dataset includes:
 - diabetes conditions
 - doctor notes
 
+Useful API routes after startup:
+
+- `POST /auth/login`
+- `GET /auth/me`
+- `GET /patients`
+- `GET /patients/<id>`
+- `GET /patients/<id>/summary`
+- `GET /patients/<id>/chart`
+- `GET /patients/<id>/fhir`
+- `POST /patients/<id>/notes`
+- `POST /emr/import`
+
 ## Single Command To Run The App
 
 Use this from the repo root:

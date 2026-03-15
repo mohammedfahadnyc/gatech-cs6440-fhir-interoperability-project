@@ -4,7 +4,11 @@ from app.db.database import db
 from app.middleware.rbac import get_current_user, patient_scope_required, role_required
 from app.models.fhir_model import FHIRResource
 from app.models.patient_model import Patient
-from app.services.chart_service import get_patient_chart
+from app.services.chart_service import (
+    get_patient_chart,
+    get_patient_fhir_bundle,
+    get_patient_summary,
+)
 from app.services.fhir_converter import build_document_reference
 
 chart_bp = Blueprint("charts", __name__)
@@ -17,6 +21,24 @@ def patient_chart(patient_id):
     if scope_error:
         return scope_error
     return jsonify(get_patient_chart(patient_id))
+
+
+@chart_bp.route("/<int:patient_id>/summary", methods=["GET"])
+@role_required("clinician", "admin", "patient")
+def patient_summary(patient_id):
+    scope_error = patient_scope_required(patient_id)
+    if scope_error:
+        return scope_error
+    return jsonify(get_patient_summary(patient_id))
+
+
+@chart_bp.route("/<int:patient_id>/fhir", methods=["GET"])
+@role_required("clinician", "admin", "patient")
+def patient_fhir_bundle(patient_id):
+    scope_error = patient_scope_required(patient_id)
+    if scope_error:
+        return scope_error
+    return jsonify(get_patient_fhir_bundle(patient_id))
 
 
 @chart_bp.route("/<int:patient_id>/notes", methods=["POST"])

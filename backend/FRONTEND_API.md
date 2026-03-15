@@ -143,7 +143,56 @@ Response:
 ]
 ```
 
-## 3. Get One Patient
+## 3. Get Current User
+
+Endpoint:
+
+```text
+GET /auth/me
+```
+
+Access:
+
+- `clinician`
+- `admin`
+- `patient`
+
+Headers:
+
+```text
+Authorization: Bearer <token>
+```
+
+Frontend purpose:
+
+- determine whether to show clinician UI or patient UI
+- get the logged-in patient id without decoding JWT manually
+
+Example `fetch`:
+
+```js
+const response = await fetch("http://127.0.0.1:5000/auth/me", {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
+const me = await response.json();
+```
+
+Response:
+
+```json
+{
+  "id": 3,
+  "email": "george.burdell@patient.com",
+  "role": "patient",
+  "patient_id": 1,
+  "created_at": "2026-03-14T12:00:00+00:00"
+}
+```
+
+## 4. Get One Patient
 
 Endpoint:
 
@@ -183,7 +232,55 @@ Response:
 }
 ```
 
-## 4. Get Patient Chart
+## 5. Get Patient Summary
+
+Endpoint:
+
+```text
+GET /patients/:id/summary
+```
+
+Access:
+
+- `clinician`
+- `admin`
+- `patient` only for their own chart summary
+
+Path params:
+
+- `id` integer, required
+
+Frontend purpose:
+
+- dashboard header stats
+- lightweight patient cards
+- quick overview without fetching the full chart
+
+Example `fetch`:
+
+```js
+const response = await fetch(`http://127.0.0.1:5000/patients/${patientId}/summary`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
+const summary = await response.json();
+```
+
+Response:
+
+```json
+{
+  "patient_id": 1,
+  "latest_a1c": 7.4,
+  "medication_count": 2,
+  "note_count": 5,
+  "last_visit": "2024-03-15"
+}
+```
+
+## 6. Get Patient Chart
 
 Endpoint:
 
@@ -283,7 +380,79 @@ Important frontend note:
 
 - `notes[].content[0].attachment.data` is base64-encoded text
 
-## 5. Create Clinical Note
+## 7. Get Patient FHIR Bundle
+
+Endpoint:
+
+```text
+GET /patients/:id/fhir
+```
+
+Access:
+
+- `clinician`
+- `admin`
+- `patient` only for their own FHIR bundle
+
+Path params:
+
+- `id` integer, required
+
+Frontend or interoperability purpose:
+
+- export all stored FHIR resources for a patient
+- hand off standards-compliant clinical data to external systems
+- demonstrate FHIR export capability in addition to the UI-specific chart response
+
+Example `fetch`:
+
+```js
+const response = await fetch(`http://127.0.0.1:5000/patients/${patientId}/fhir`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
+const bundle = await response.json();
+```
+
+Response shape:
+
+```json
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference"
+      }
+    }
+  ]
+}
+```
+
+## 8. Create Clinical Note
 
 Endpoint:
 
@@ -344,7 +513,7 @@ Success response:
 }
 ```
 
-## 6. Import EMR Payload
+## 9. Import EMR Payload
 
 Endpoint:
 
@@ -463,6 +632,9 @@ Common errors:
 - Store the JWT token after login
 - Pass the token in the `Authorization` header for every protected route
 - The main dashboard should primarily use `GET /patients/:id/chart`
+- Use `GET /auth/me` to resolve role and `patient_id` after login
+- Use `GET /patients/:id/summary` for lightweight dashboard metrics
+- Use `GET /patients/:id/fhir` when the UI or an external integration needs standards-compliant FHIR export
 - Clinician dashboards can use `GET /patients` to populate a patient list
 - Patient dashboards should use the logged-in user’s `patient_id` from the login response
 - Notes are stored as FHIR `DocumentReference`
