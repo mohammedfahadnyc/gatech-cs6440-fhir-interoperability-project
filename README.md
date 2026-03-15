@@ -135,3 +135,11 @@ Important:
 - Your live local Postgres data is not pushed automatically
 - The export command updates the tracked SQL snapshot file
 - Future fresh clones can initialize from that committed snapshot
+
+
+Quick Demo:
+
+https://github.gatech.edu/user-attachments/assets/151479ff-50c7-43c7-800d-07c785f9fa29
+
+
+
