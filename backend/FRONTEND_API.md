@@ -28,7 +28,6 @@ Then use:
 Notes:
 
 - If `AUTO_SEED=true`, the backend seeds an empty database automatically on startup
-- If you stay on the SQLite `DATABASE_URL`, you can skip `docker compose up -d postgres`
 
 ## Auth Model
 

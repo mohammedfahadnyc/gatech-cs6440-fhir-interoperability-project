@@ -7,7 +7,7 @@
 
 Optional:
 
-- PostgreSQL if you want to use a real Postgres database instead of the default SQLite fallback
+- Docker Desktop or Docker Engine
 
 ## Install
 
@@ -21,30 +21,15 @@ cp backend/.env.example backend/.env
 
 ## Configure The Database
 
-The app supports two database modes from the same codebase.
+The app uses PostgreSQL as the single supported local database.
 
-Option 1: SQLite fallback
-
-- Works with no Docker
-- Good for quick local testing
-- Data persists in `backend/instance/`
-
-Option 2: Persistent PostgreSQL
-
-- Uses Docker
-- Keeps data in a Docker volume
-- Auto-seeds only on the first empty startup
-
-Edit `backend/.env` and keep only one `DATABASE_URL` active.
-
-Default `backend/.env.example` includes both options:
+`backend/.env.example` includes the default local connection:
 
 ```bash
-DATABASE_URL=sqlite:///fhir_diabetes_bridge.db
-# DATABASE_URL=postgresql://fhir:fhir@localhost:5432/fhir_bridge
+DATABASE_URL=postgresql://fhir:fhir@localhost:5432/fhir_bridge
 ```
 
-For PostgreSQL, start the database from the repo root:
+Start PostgreSQL from the repo root:
 
 ```bash
 docker compose up -d postgres
@@ -99,7 +84,7 @@ http://127.0.0.1:5000
 
 1. Install dependencies.
 2. Copy the env file.
-3. Optionally start PostgreSQL with Docker.
+3. Start PostgreSQL with Docker.
 4. Run the app.
 5. Import the Postman collection or connect the frontend.
 
@@ -110,15 +95,6 @@ python3 -m venv backend/.venv
 backend/.venv/bin/pip install -r backend/requirements.txt
 cp backend/.env.example backend/.env
 docker compose up -d postgres
-backend/.venv/bin/python backend/run.py
-```
-
-SQLite-only quick run:
-
-```bash
-python3 -m venv backend/.venv
-backend/.venv/bin/pip install -r backend/requirements.txt
-cp backend/.env.example backend/.env
 backend/.venv/bin/python backend/run.py
 ```
 

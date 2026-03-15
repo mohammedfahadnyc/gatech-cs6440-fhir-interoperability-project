@@ -28,8 +28,7 @@ This project is a Flask backend for a diabetes-focused interoperability demo. It
   - medication history
   - doctor notes
 - Postman collection for manual API testing
-- SQLite fallback for zero-setup local testing
-- Persistent PostgreSQL option via Docker with auto-seeding on first startup
+- Persistent PostgreSQL via Docker with auto-seeding on first startup
 
 ## Project Layout
 
@@ -59,11 +58,8 @@ backend/
 
 All documented commands in this repository are written to be run from the repo root.
 
-## Database Modes
+## Database
 
-The backend supports both:
+The backend now uses PostgreSQL as the single supported local database.
 
-- SQLite fallback for simple local testing
-- Persistent PostgreSQL through Docker for a production-like local setup
-
-Copy `backend/.env.example` to `backend/.env`, then keep the `DATABASE_URL` you want and comment out the other.
+Copy `backend/.env.example` to `backend/.env`, then start PostgreSQL with Docker before running the app.

@@ -13,7 +13,7 @@ class Config:
         "JWT_SECRET_KEY", "dev-jwt-secret-key-for-fhir-bridge-2026"
     )
     SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL", "sqlite:///fhir_diabetes_bridge.db"
+        "DATABASE_URL", "postgresql://fhir:fhir@localhost:5432/fhir_bridge"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=8)
