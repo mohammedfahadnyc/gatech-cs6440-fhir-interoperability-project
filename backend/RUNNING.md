@@ -19,6 +19,8 @@ backend/.venv/bin/pip install -r backend/requirements.txt
 cp backend/.env.example backend/.env
 ```
 
+Make sure Docker Desktop or Docker Engine is already running.
+
 ## Configure The Database
 
 The app uses PostgreSQL as the single supported local database.
@@ -74,6 +76,14 @@ Use this from the repo root:
 backend/.venv/bin/python backend/run.py
 ```
 
+For normal day-to-day development after setup, use:
+
+```bash
+./backend/scripts/start_dev.sh
+```
+
+That starts PostgreSQL and then launches the Flask app.
+
 The API starts on:
 
 ```text
@@ -97,6 +107,28 @@ cp backend/.env.example backend/.env
 docker compose up -d postgres
 backend/.venv/bin/python backend/run.py
 ```
+
+## Publish A Database Snapshot
+
+If you add or change data and want future fresh clones to start from that exact database state, export a new snapshot:
+
+```bash
+./backend/scripts/export_db_snapshot.sh
+```
+
+This writes:
+
+```text
+backend/db/init/001_snapshot.sql
+```
+
+Then commit and push that file.
+
+Important:
+
+- This does not change an already-existing local Docker volume
+- PostgreSQL only imports `backend/db/init/001_snapshot.sql` when the Docker volume is brand new
+- If you want to reinitialize from the latest snapshot, reset the Postgres volume and start the container again
 
 ## Seeded Login Accounts
 

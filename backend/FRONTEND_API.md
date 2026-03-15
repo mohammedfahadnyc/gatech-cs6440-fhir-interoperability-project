@@ -27,6 +27,7 @@ Then use:
 
 Notes:
 
+- Docker Desktop or Docker Engine must be running
 - If `AUTO_SEED=true`, the backend seeds an empty database automatically on startup
 
 ## Auth Model
