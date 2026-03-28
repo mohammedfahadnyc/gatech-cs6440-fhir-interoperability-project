@@ -176,3 +176,32 @@ Expected response:
   "status": "ok"
 }
 ```
+
+## Demo Flow
+
+The default seed path now creates:
+
+- internal patients with existing chart data
+- external demo patients that start empty
+
+External demo patients:
+
+- Alex Morgan
+- Chris Walker
+- Nina Patel
+- Daniel Kim
+
+External patient flow:
+
+1. `POST /patients/<id>/authorize`
+2. `POST /patients/<id>/import`
+3. `GET /patients/<id>/chart`
+4. `DELETE /patients/<id>/data`
+
+Useful commands:
+
+```bash
+backend/.venv/bin/python backend/scripts/migrate_patient_origin.py
+backend/.venv/bin/python backend/scripts/seed_demo_patients.py
+backend/.venv/bin/python backend/scripts/demo_flow_test.py
+```

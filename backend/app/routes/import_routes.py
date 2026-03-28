@@ -88,7 +88,13 @@ def import_emr_payload():
     if not patient:
         dob = _parse_date(payload.get("dob"), datetime(1980, 1, 1).date())
         gender = (payload.get("gender") or "unknown").lower()
-        patient = Patient(name=name, dob=dob, gender=gender)
+        patient = Patient(
+            name=name,
+            dob=dob,
+            gender=gender,
+            data_origin="internal",
+            is_authorized=True,
+        )
         db.session.add(patient)
         db.session.flush()
 
@@ -114,6 +120,10 @@ def import_emr_payload():
             )
         )
 
+    patient.data_origin = patient.data_origin or "internal"
+    patient.is_authorized = True
+    patient.is_imported = True
+    patient.data_source = (payload.get("source_system") or "emr_import").lower()
     db.session.commit()
 
     return (

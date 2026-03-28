@@ -144,3 +144,27 @@ https://github.gatech.edu/user-attachments/assets/151479ff-50c7-43c7-800d-07c785
 
 ##
 
+
+## Internal vs External Demo Flow
+
+The backend now supports two patient modes:
+
+- `internal`: existing seeded clinical patients already have data and their charts load immediately
+- `external`: demo patients start empty and require `authorize -> import -> chart`
+
+Default empty-database seeding now includes both:
+
+- internal seeded patients with existing diabetes chart data
+- external demo patients:
+  - Alex Morgan
+  - Chris Walker
+  - Nina Patel
+  - Daniel Kim
+
+Useful demo scripts:
+
+```bash
+backend/.venv/bin/python backend/scripts/migrate_patient_origin.py
+backend/.venv/bin/python backend/scripts/seed_demo_patients.py
+backend/.venv/bin/python backend/scripts/demo_flow_test.py
+```

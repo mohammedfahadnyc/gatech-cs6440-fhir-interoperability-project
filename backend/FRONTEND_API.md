@@ -323,11 +323,19 @@ Response shape:
 
 ```json
 {
+  "authorized": true,
+  "imported": true,
+  "source": "athena",
+  "banner": "Data imported from Athena",
   "patient": {
     "id": 1,
     "name": "George Burdell",
     "dob": "1978-04-12",
     "gender": "male",
+    "data_origin": "external",
+    "authorized": true,
+    "imported": true,
+    "source": "athena",
     "created_at": "2026-03-14T12:00:00+00:00"
   },
   "observations": [
@@ -376,8 +384,10 @@ Response shape:
 }
 ```
 
-Important frontend note:
+Important frontend notes:
 
+- `authorized`, `imported`, `source`, and `banner` are always present on chart responses
+- `banner` is `null` for internal patients and for external patients before import
 - `notes[].content[0].attachment.data` is base64-encoded text
 
 ## 7. Get Patient FHIR Bundle
@@ -639,3 +649,55 @@ Common errors:
 - Patient dashboards should use the logged-in user’s `patient_id` from the login response
 - Notes are stored as FHIR `DocumentReference`
 - Imported EMR data is normalized into FHIR resources before persistence
+
+## Demo Import Flow
+
+Patients now expose these flags:
+
+- `data_origin`: `internal` or `external`
+- `authorized`: whether external data access has been authorized
+- `imported`: whether external data has already been imported
+- `source`: selected source such as `athena` or `epic`
+
+Behavior:
+
+- internal patients already have data and their chart loads immediately
+- external patients start with empty chart arrays until imported
+- repeated import calls overwrite prior imported external data instead of duplicating it
+
+External demo endpoints:
+
+### Authorize External Patient
+
+```text
+POST /patients/:id/authorize
+```
+
+Body:
+
+```json
+{
+  "source": "athena"
+}
+```
+
+### Import External Patient Data
+
+```text
+POST /patients/:id/import
+```
+
+No request body is required.
+
+### Clear External Patient Data
+
+```text
+DELETE /patients/:id/data
+```
+
+After clear:
+
+- `authorized` becomes `false`
+- `imported` becomes `false`
+- `source` becomes `null`
+- chart arrays become empty again

@@ -5,6 +5,10 @@ from flask_jwt_extended import JWTManager
 from app.config import Config
 from app.db.database import db
 from app.docs import SWAGGER_CONFIG, SWAGGER_TEMPLATE
+from app.services.patient_compat_service import (
+    ensure_patient_demo_columns,
+    migrate_existing_patients_to_internal,
+)
 from app.services.seed_service import ensure_seed_data
 
 jwt = JWTManager()
@@ -51,6 +55,8 @@ def create_app(config_class=Config):
     with app.app_context():
         # Keep the project immediately runnable without a separate migration step.
         db.create_all()
+        ensure_patient_demo_columns()
+        migrate_existing_patients_to_internal()
         if app.config.get("AUTO_SEED"):
             ensure_seed_data()
 

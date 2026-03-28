@@ -13,6 +13,14 @@ from app.services.fhir_converter import (
 )
 
 
+DEMO_PATIENT_ROWS = [
+    ("Alex Morgan", date(1988, 2, 14), "female", "alex.morgan@patient.com"),
+    ("Chris Walker", date(1979, 8, 9), "male", "chris.walker@patient.com"),
+    ("Nina Patel", date(1991, 5, 21), "female", "nina.patel@patient.com"),
+    ("Daniel Kim", date(1984, 12, 3), "male", "daniel.kim@patient.com"),
+]
+
+
 def upsert_user(email, role, password, patient_id=None):
     user = User.query.filter_by(email=email).first()
     if not user:
@@ -37,6 +45,24 @@ def add_resource(patient_id, resource_type, payload, source_system="seed"):
     )
 
 
+def seed_demo_patients():
+    for name, dob, gender, email in DEMO_PATIENT_ROWS:
+        patient = Patient.query.filter_by(name=name).first()
+        if not patient:
+            patient = Patient(
+                name=name,
+                dob=dob,
+                gender=gender,
+                data_origin="external",
+                is_authorized=False,
+                is_imported=False,
+                data_source=None,
+            )
+            db.session.add(patient)
+            db.session.flush()
+        upsert_user(email, "patient", "password123", patient.id)
+
+
 def seed_data(reset=False):
     if reset:
         db.drop_all()
@@ -59,12 +85,20 @@ def seed_data(reset=False):
     baseline = date.today() - timedelta(days=365)
 
     for index, (name, dob, gender, email) in enumerate(patient_rows, start=1):
-        patient = Patient(name=name, dob=dob, gender=gender)
+        patient = Patient(
+            name=name,
+            dob=dob,
+            gender=gender,
+            data_origin="internal",
+            is_authorized=True,
+            is_imported=True,
+            data_source="internal",
+        )
         db.session.add(patient)
         db.session.flush()
 
         upsert_user(email, "patient", "password123", patient.id)
-        add_resource(patient.id, "Patient", build_patient_resource(patient))
+        add_resource(patient.id, "Patient", build_patient_resource(patient), source_system="internal")
         add_resource(
             patient.id,
             "Condition",
@@ -73,6 +107,7 @@ def seed_data(reset=False):
                 "Type 2 Diabetes Mellitus",
                 baseline + timedelta(days=index * 7),
             ),
+            source_system="internal",
         )
 
         for offset, value in enumerate(hba1c_values):
@@ -81,6 +116,7 @@ def seed_data(reset=False):
                 patient.id,
                 "Observation",
                 build_observation(patient.id, "HbA1c", value, observed_on),
+                source_system="internal",
             )
 
         for med_index, medication in enumerate(medications):
@@ -89,6 +125,7 @@ def seed_data(reset=False):
                 patient.id,
                 "MedicationStatement",
                 build_medication_statement(patient.id, medication, authored_on),
+                source_system="internal",
             )
 
         add_resource(
@@ -99,8 +136,10 @@ def seed_data(reset=False):
                 f"{name} diabetes follow-up note. Encourage diet adherence and exercise.",
                 "doctor1@clinic.com",
             ),
+            source_system="internal",
         )
 
+    seed_demo_patients()
     db.session.commit()
 
 

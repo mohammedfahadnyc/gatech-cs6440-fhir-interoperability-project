@@ -4,16 +4,27 @@ from app.models.patient_model import Patient
 
 def get_patient_chart(patient_id):
     patient = Patient.query.get_or_404(patient_id)
-    resources = FHIRResource.query.filter_by(patient_id=patient_id).all()
+    banner = None
+    if patient.data_origin == "external" and patient.is_imported and patient.data_source:
+        banner = f"Data imported from {patient.data_source.capitalize()}"
 
     # The chart payload is intentionally frontend-shaped to keep dashboard code simple.
     chart = {
+        "authorized": patient.is_authorized,
+        "imported": patient.is_imported,
+        "source": patient.data_source,
+        "banner": banner,
         "patient": patient.to_dict(),
         "observations": [],
         "medications": [],
         "conditions": [],
         "notes": [],
     }
+
+    if patient.data_origin == "external" and not patient.is_imported:
+        return chart
+
+    resources = FHIRResource.query.filter_by(patient_id=patient_id).all()
 
     for resource in resources:
         payload = resource.payload_json
@@ -36,6 +47,15 @@ def get_patient_chart(patient_id):
 
 def get_patient_summary(patient_id):
     patient = Patient.query.get_or_404(patient_id)
+    if patient.data_origin == "external" and not patient.is_imported:
+        return {
+            "patient_id": patient.id,
+            "latest_a1c": None,
+            "medication_count": 0,
+            "note_count": 0,
+            "last_visit": None,
+        }
+
     resources = FHIRResource.query.filter_by(patient_id=patient.id).all()
 
     latest_a1c = None
