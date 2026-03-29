@@ -168,3 +168,4 @@ backend/.venv/bin/python backend/scripts/migrate_patient_origin.py
 backend/.venv/bin/python backend/scripts/seed_demo_patients.py
 backend/.venv/bin/python backend/scripts/demo_flow_test.py
 ```
+test
