@@ -198,6 +198,25 @@ External patient flow:
 3. `GET /patients/<id>/chart`
 4. `DELETE /patients/<id>/data`
 
+Epic sandbox note:
+
+- `nina.patel@patient.com` is the only local patient currently wired to the real Epic sandbox authorize flow
+- call `POST /patients/<id>/authorize` with `{"source":"epic"}` to get an `authorization_url`
+- open that URL in a browser to complete Epic login
+- after the callback succeeds, the existing mock import flow still works unchanged
+
+Epic local env values:
+
+```bash
+EPIC_ENABLED=true
+EPIC_CLIENT_ID=
+EPIC_CLIENT_SECRET=
+EPIC_REDIRECT_URI=http://127.0.0.1:5000/auth/epic/callback
+EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4
+EPIC_AUTH_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/
+EPIC_DEMO_PATIENT_EMAIL=nina.patel@patient.com
+```
+
 Useful commands:
 
 ```bash

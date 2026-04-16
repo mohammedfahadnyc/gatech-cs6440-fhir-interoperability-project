@@ -4,6 +4,10 @@ from app.db.database import db
 from app.middleware.rbac import get_current_user, role_required
 from app.models.fhir_model import FHIRResource
 from app.models.patient_model import Patient
+from app.services.epic_service import (
+    build_epic_authorization_url,
+    is_epic_demo_patient,
+)
 from app.services.fhir_converter import convert_emr_payload
 from app.services.mock_emr_service import get_athena_data, get_epic_data
 
@@ -113,6 +117,31 @@ def authorize_patient(patient_id):
     patient = Patient.query.get_or_404(patient_id)
     if patient.data_origin == "internal":
         return jsonify({"error": "Internal patients do not require authorization"}), 400
+
+    if source == "epic":
+        if not is_epic_demo_patient(current_user, patient):
+            return (
+                jsonify(
+                    {
+                        "error": "Epic sandbox authorization is currently enabled only for Nina Patel"
+                    }
+                ),
+                400,
+            )
+
+        try:
+            authorization_url = build_epic_authorization_url(current_user, patient)
+        except ValueError as exc:
+            return jsonify({"error": str(exc)}), 400
+
+        return jsonify(
+            {
+                "message": "Open the Epic authorization URL in a browser to complete sandbox authorization",
+                "source": "epic",
+                "authorization_url": authorization_url,
+                "patient": patient.to_dict(),
+            }
+        )
 
     patient.is_authorized = True
     patient.is_imported = False

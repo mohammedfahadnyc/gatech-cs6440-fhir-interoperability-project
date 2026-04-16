@@ -168,4 +168,42 @@ backend/.venv/bin/python backend/scripts/migrate_patient_origin.py
 backend/.venv/bin/python backend/scripts/seed_demo_patients.py
 backend/.venv/bin/python backend/scripts/demo_flow_test.py
 ```
+<<<<<<< HEAD
 test
+=======
+
+## Epic Sandbox Demo
+
+The backend now supports a minimal real Epic sandbox authorization flow for one local external patient:
+
+- `nina.patel@patient.com` / `password123`
+
+Current scope:
+
+- Athena stays fully mocked
+- internal patients stay unchanged
+- Epic is used only for the authorize step right now
+- import and chart still use the existing local mock flow after authorization
+
+Local Epic env variables in `backend/.env`:
+
+```bash
+EPIC_ENABLED=true
+EPIC_CLIENT_ID=your-non-production-client-id
+EPIC_CLIENT_SECRET=your-sandbox-client-secret
+EPIC_REDIRECT_URI=http://127.0.0.1:5000/auth/epic/callback
+EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4
+EPIC_AUTH_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/
+EPIC_DEMO_PATIENT_EMAIL=nina.patel@patient.com
+```
+
+Local test flow:
+
+1. Log in as `nina.patel@patient.com`.
+2. Call `POST /patients/<nina_id>/authorize` with body `{"source":"epic"}`.
+3. Copy the returned `authorization_url` into a browser.
+4. Complete Epic sandbox login there.
+5. Epic redirects back to `GET /auth/epic/callback`.
+6. Verify Nina is now `authorized=true` and `source="epic"` using the existing patient/chart endpoints.
+##
+>>>>>>> 894a6cc (Add Epic sandbox authorization flow)

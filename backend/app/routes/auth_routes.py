@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request
 
+from app.db.database import db
 from app.middleware.rbac import get_current_user, role_required
 from app.services.auth_service import authenticate_user, build_token
+from app.services.epic_service import consume_epic_callback
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -70,3 +72,50 @@ def me():
         description: Forbidden
     """
     return jsonify(get_current_user().to_dict())
+
+
+@auth_bp.route("/epic/callback", methods=["GET"])
+def epic_callback():
+    """
+    Complete the Epic sandbox OAuth callback for the Nina Patel demo flow.
+    ---
+    tags:
+      - Auth
+    parameters:
+      - in: query
+        name: code
+        type: string
+      - in: query
+        name: state
+        type: string
+      - in: query
+        name: error
+        type: string
+    responses:
+      200:
+        description: Epic authorization completed
+      400:
+        description: Invalid callback or declined authorization
+    """
+    if request.args.get("error"):
+        error = request.args.get("error")
+        description = request.args.get("error_description") or "Epic authorization was declined"
+        return jsonify({"error": error, "message": description}), 400
+
+    try:
+        result = consume_epic_callback(
+            request.args.get("code"),
+            request.args.get("state"),
+        )
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    db.session.commit()
+    patient = result["patient"]
+    return jsonify(
+        {
+            "message": "Epic sandbox authorization completed successfully",
+            "patient": patient.to_dict(),
+            "epic_patient_id": result["token_payload"].get("patient"),
+        }
+    )
