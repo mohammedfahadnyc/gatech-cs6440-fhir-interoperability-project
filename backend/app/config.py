@@ -31,6 +31,7 @@ class Config:
     EPIC_AUTH_BASE_URL = os.getenv(
         "EPIC_AUTH_BASE_URL", "https://fhir.epic.com/interconnect-fhir-oauth/"
     )
-    EPIC_DEMO_PATIENT_EMAIL = os.getenv(
-        "EPIC_DEMO_PATIENT_EMAIL", "nina.patel@patient.com"
+    EPIC_DEMO_PATIENT_EMAILS = os.getenv(
+        "EPIC_DEMO_PATIENT_EMAILS",
+        "nina.patel@patient.com,chris.walker@patient.com",
     )

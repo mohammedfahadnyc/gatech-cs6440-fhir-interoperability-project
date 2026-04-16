@@ -33,8 +33,17 @@ def _require_epic_config():
 
 
 def is_epic_demo_patient(user, patient):
-    allowed_email = (current_app.config.get("EPIC_DEMO_PATIENT_EMAIL") or "").lower()
-    return user.role == "patient" and user.email.lower() == allowed_email and user.patient_id == patient.id
+    configured = current_app.config.get("EPIC_DEMO_PATIENT_EMAILS") or ""
+    allowed_emails = {
+        email.strip().lower()
+        for email in configured.split(",")
+        if email.strip()
+    }
+    return (
+        user.role == "patient"
+        and user.email.lower() in allowed_emails
+        and user.patient_id == patient.id
+    )
 
 
 def build_epic_authorization_url(user, patient):
@@ -87,7 +96,7 @@ def consume_epic_callback(code, state):
     user = User.query.get_or_404(payload["user_id"])
     patient = Patient.query.get_or_404(payload["patient_id"])
     if not is_epic_demo_patient(user, patient):
-        raise ValueError("Epic sandbox authorization is only enabled for Nina Patel")
+        raise ValueError("Epic sandbox authorization is only enabled for Nina Patel and Chris Walker")
 
     token_payload = exchange_epic_code_for_token(code)
     patient.is_authorized = True

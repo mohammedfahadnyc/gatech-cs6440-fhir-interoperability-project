@@ -200,7 +200,7 @@ External patient flow:
 
 Epic sandbox note:
 
-- `nina.patel@patient.com` is the only local patient currently wired to the real Epic sandbox authorize flow
+- `nina.patel@patient.com` and `chris.walker@patient.com` are the local patients currently wired to the real Epic sandbox authorize flow
 - call `POST /patients/<id>/authorize` with `{"source":"epic"}` to get an `authorization_url`
 - open that URL in a browser to complete Epic login
 - after the callback succeeds, the existing mock import flow still works unchanged
@@ -214,7 +214,7 @@ EPIC_CLIENT_SECRET=
 EPIC_REDIRECT_URI=http://127.0.0.1:5000/auth/epic/callback
 EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4
 EPIC_AUTH_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/
-EPIC_DEMO_PATIENT_EMAIL=nina.patel@patient.com
+EPIC_DEMO_PATIENT_EMAILS=nina.patel@patient.com,chris.walker@patient.com
 ```
 
 Useful commands:

@@ -174,9 +174,10 @@ test
 
 ## Epic Sandbox Demo
 
-The backend now supports a minimal real Epic sandbox authorization flow for one local external patient:
+The backend now supports a minimal real Epic sandbox authorization flow for two local external patients:
 
 - `nina.patel@patient.com` / `password123`
+- `chris.walker@patient.com` / `password123`
 
 Current scope:
 
@@ -194,7 +195,7 @@ EPIC_CLIENT_SECRET=your-sandbox-client-secret
 EPIC_REDIRECT_URI=http://127.0.0.1:5000/auth/epic/callback
 EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4
 EPIC_AUTH_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/
-EPIC_DEMO_PATIENT_EMAIL=nina.patel@patient.com
+EPIC_DEMO_PATIENT_EMAILS=nina.patel@patient.com,chris.walker@patient.com
 ```
 
 Local test flow:

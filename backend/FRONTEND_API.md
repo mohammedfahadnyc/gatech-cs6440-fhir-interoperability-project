@@ -196,7 +196,7 @@ Response:
 
 The current Epic sandbox integration is intentionally narrow:
 
-- only `nina.patel@patient.com` uses the real Epic authorize flow
+- only `nina.patel@patient.com` and `chris.walker@patient.com` use the real Epic authorize flow
 - `POST /patients/:id/authorize` with `{"source":"epic"}` returns an `authorization_url`
 - the frontend or tester should open that URL in a browser
 - Epic redirects back to `GET /auth/epic/callback`

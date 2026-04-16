@@ -123,7 +123,7 @@ def authorize_patient(patient_id):
             return (
                 jsonify(
                     {
-                        "error": "Epic sandbox authorization is currently enabled only for Nina Patel"
+                        "error": "Epic sandbox authorization is currently enabled only for Nina Patel and Chris Walker"
                     }
                 ),
                 400,
