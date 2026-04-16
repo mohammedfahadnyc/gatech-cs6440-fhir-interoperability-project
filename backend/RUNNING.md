@@ -208,6 +208,7 @@ Epic sandbox note:
 Epic local env values:
 
 ```bash
+FRONTEND_APP_URL=http://localhost:3000
 EPIC_ENABLED=true
 EPIC_CLIENT_ID=
 EPIC_CLIENT_SECRET=

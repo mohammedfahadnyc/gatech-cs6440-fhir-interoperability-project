@@ -198,8 +198,8 @@ The current Epic sandbox integration is intentionally narrow:
 
 - only `nina.patel@patient.com` and `chris.walker@patient.com` use the real Epic authorize flow
 - `POST /patients/:id/authorize` with `{"source":"epic"}` returns an `authorization_url`
-- the frontend or tester should open that URL in a browser
-- Epic redirects back to `GET /auth/epic/callback`
+- the frontend should open that URL in a browser
+- Epic redirects to the backend callback, and the backend then redirects the browser back to `FRONTEND_APP_URL` with query params like `epic=success`, `patient_id`, and `source=epic`
 - after that callback succeeds, the existing local import and chart flow remains unchanged
 
 Athena and all internal patient behavior remain unchanged.

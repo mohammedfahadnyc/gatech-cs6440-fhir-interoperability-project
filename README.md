@@ -189,6 +189,7 @@ Current scope:
 Local Epic env variables in `backend/.env`:
 
 ```bash
+FRONTEND_APP_URL=http://localhost:3000
 EPIC_ENABLED=true
 EPIC_CLIENT_ID=your-non-production-client-id
 EPIC_CLIENT_SECRET=your-sandbox-client-secret
@@ -204,7 +205,7 @@ Local test flow:
 2. Call `POST /patients/<nina_id>/authorize` with body `{"source":"epic"}`.
 3. Copy the returned `authorization_url` into a browser.
 4. Complete Epic sandbox login there.
-5. Epic redirects back to `GET /auth/epic/callback`.
-6. Verify Nina is now `authorized=true` and `source="epic"` using the existing patient/chart endpoints.
+5. Epic redirects to the backend callback, which then redirects the browser back to `FRONTEND_APP_URL` with `epic=success`, `patient_id`, and `source=epic` query params.
+6. Verify the patient is now `authorized=true` and `source="epic"` using the existing patient/chart endpoints.
 ##
 >>>>>>> 894a6cc (Add Epic sandbox authorization flow)

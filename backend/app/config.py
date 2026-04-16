@@ -35,3 +35,4 @@ class Config:
         "EPIC_DEMO_PATIENT_EMAILS",
         "nina.patel@patient.com,chris.walker@patient.com",
     )
+    FRONTEND_APP_URL = os.getenv("FRONTEND_APP_URL", "")

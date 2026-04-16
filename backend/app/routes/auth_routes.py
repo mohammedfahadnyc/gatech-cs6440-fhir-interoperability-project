@@ -1,4 +1,6 @@
-from flask import Blueprint, jsonify, request
+from urllib.parse import urlencode
+
+from flask import Blueprint, current_app, jsonify, redirect, request
 
 from app.db.database import db
 from app.middleware.rbac import get_current_user, role_required
@@ -6,6 +8,19 @@ from app.services.auth_service import authenticate_user, build_token
 from app.services.epic_service import consume_epic_callback
 
 auth_bp = Blueprint("auth", __name__)
+
+
+def _frontend_redirect(path="", **params):
+    frontend_url = (current_app.config.get("FRONTEND_APP_URL") or "").rstrip("/")
+    if not frontend_url:
+        return None
+
+    destination = frontend_url
+    if path:
+        destination = f"{frontend_url}/{path.lstrip('/')}"
+    if params:
+        destination = f"{destination}?{urlencode(params)}"
+    return redirect(destination)
 
 
 @auth_bp.route("/login", methods=["POST"])
@@ -100,6 +115,13 @@ def epic_callback():
     if request.args.get("error"):
         error = request.args.get("error")
         description = request.args.get("error_description") or "Epic authorization was declined"
+        redirect_response = _frontend_redirect(
+            "",
+            epic="error",
+            message=description,
+        )
+        if redirect_response:
+            return redirect_response
         return jsonify({"error": error, "message": description}), 400
 
     try:
@@ -108,10 +130,25 @@ def epic_callback():
             request.args.get("state"),
         )
     except Exception as exc:
+        redirect_response = _frontend_redirect(
+            "",
+            epic="error",
+            message=str(exc),
+        )
+        if redirect_response:
+            return redirect_response
         return jsonify({"error": str(exc)}), 400
 
     db.session.commit()
     patient = result["patient"]
+    redirect_response = _frontend_redirect(
+        "",
+        epic="success",
+        patient_id=patient.id,
+        source="epic",
+    )
+    if redirect_response:
+        return redirect_response
     return jsonify(
         {
             "message": "Epic sandbox authorization completed successfully",
