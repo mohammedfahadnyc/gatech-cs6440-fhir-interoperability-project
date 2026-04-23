@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 
 from app.db.database import db
-from app.middleware.rbac import get_current_user, role_required
+from app.middleware.rbac import get_current_user, patient_scope_required, role_required
 from app.models.fhir_model import FHIRResource
 from app.models.patient_model import Patient
 from app.services.epic_service import (
@@ -218,7 +218,7 @@ def import_patient_data(patient_id):
 
 
 @patient_bp.route("/<int:patient_id>/data", methods=["DELETE"])
-@role_required("clinician", "admin")
+@role_required("clinician", "admin", "patient")
 def clear_patient_data(patient_id):
     """
     Clear patient clinical data and reset the demo state.
@@ -242,6 +242,10 @@ def clear_patient_data(patient_id):
       404:
         description: Patient not found
     """
+    scope_error = patient_scope_required(patient_id)
+    if scope_error:
+        return scope_error
+
     patient = Patient.query.get_or_404(patient_id)
     if patient.data_origin == "internal":
         return jsonify({"error": "Internal patient data cannot be cleared with demo reset"}), 400
