@@ -1,211 +1,37 @@
-# FHIR Diabetes Interoperability Bridge
+# Georgia Tech CS6440 FHIR Interoperability Portfolio
 
-This project is a Flask backend for a diabetes-focused interoperability demo. It takes simple EMR-style payloads, converts them into FHIR resources, stores the clinical data as JSON, and exposes a UI-friendly chart API for frontend dashboards.
+This repository is a portfolio-style collection for Georgia Tech CS6440: Introduction to Health Informatics. It combines a full-stack FHIR interoperability practicum project with the supporting course lab work on FHIR resources, SMART on FHIR, clinical data extraction, and health data engineering.
 
-## Quick Start
-
-Make sure Docker Desktop or Docker Engine is running first.
-
-First-time setup from the repo root:
-
-```bash
-python3 -m venv backend/.venv
-backend/.venv/bin/pip install -r backend/requirements.txt
-cp backend/.env.example backend/.env
-docker compose up -d postgres
-backend/.venv/bin/python backend/run.py
-```
-
-Before first run, review `backend/.env` and set `DATABASE_URL` if you want a different PostgreSQL instance.
-
-Subsequent runs from the repo root:
-
-```bash
-./backend/scripts/start_dev.sh
-```
-
-This starts PostgreSQL and then runs the API at `http://127.0.0.1:5000`.
-Swagger UI is available at `http://127.0.0.1:5000/apidocs/`.
-
-## What Is Built
-
-- JWT authentication with clinician, patient, and admin roles
-- RBAC enforcement so patients can only access their own chart
-- FHIR resource storage in `fhir_resources` using JSON/JSONB-compatible models
-- Supported FHIR resources for the MVP:
-  - `Patient`
-  - `Observation`
-  - `MedicationStatement`
-  - `Condition`
-  - `DocumentReference`
-- Chart aggregation endpoint returning:
-  - `patient`
-  - `observations`
-  - `medications`
-  - `conditions`
-  - `notes`
-- EMR import endpoint that converts simple JSON into FHIR resources automatically
-- current-user endpoint for frontend role/patient resolution
-- patient summary endpoint for lightweight dashboard stats
-- FHIR Bundle export endpoint for standards-compliant interoperability output
-- Seed script that creates:
-  - 2 clinician users
-  - 5 patient users
-  - diabetes conditions
-  - HbA1c observation history
-  - medication history
-  - doctor notes
-- Postman collection for manual API testing
-- Persistent PostgreSQL via Docker with auto-seeding on first startup
-
-## Project Layout
+## Repository Layout
 
 ```text
-backend/
-  app/
-    config.py
-    __init__.py
-    db/
-    middleware/
-    models/
-    routes/
-    services/
-  postman/
-  scripts/
-  requirements.txt
-  run.py
+.
+|-- fhir-interoperability-platform/
+|   |-- fhir-frontend/
+|   |-- fhir-backend/
+|   `-- README.md
+`-- course-labs/
 ```
 
-## Documentation
+## FHIR Interoperability Platform
 
-- Run guide: [backend/RUNNING.md](backend/RUNNING.md)
-- Frontend API guide: [backend/FRONTEND_API.md](backend/FRONTEND_API.md)
-- Postman collection: [backend/postman/fhir_diabetes_collection.json](backend/postman/fhir_diabetes_collection.json)
+`fhir-interoperability-platform/` contains a full-stack diabetes care dashboard built as a proof-of-concept for multi-EHR interoperability. The project demonstrates how a clinic-facing application can normalize data from different EHR-style sources into a standards-based FHIR layer, then present a unified longitudinal chart for clinicians and a focused self-management portal for patients.
 
-## Repo Root Usage
+The platform includes:
 
-All documented commands in this repository are written to be run from the repo root.
+- a Next.js frontend for clinician and patient workflows
+- a Flask backend API with JWT authentication and role-based access control
+- PostgreSQL-backed FHIR resource storage
+- FHIR resource normalization for patients, observations, medications, conditions, and notes
+- internal patient data flows, external import flows, and sandbox-style authorization hooks
+- diabetes-focused charting, clinical documentation, safety alerts, and education content
 
-## Database
+Sensitive live credentials, submission access details, and personally identifying demo walkthrough details are intentionally omitted from the portfolio documentation.
 
-The backend now uses PostgreSQL as the single supported local database.
+## Course Labs
 
-Copy `backend/.env.example` to `backend/.env`, then start PostgreSQL with Docker before running the app.
+`course-labs/` contains the broader CS6440 lab sequence. The labs explore core health informatics concepts including FHIR resource manipulation, OMOP-on-FHIR mapping, SMART on FHIR applications, clinical NLP/RAG workflows, and FHIR-based machine learning feature engineering.
 
-To publish the current database contents for future fresh clones:
+## Theme
 
-```bash
-./backend/scripts/export_db_snapshot.sh
-```
-
-That updates `backend/db/init/001_snapshot.sql`. Commit that file when you want the latest database snapshot to be restored on brand-new environments.
-
-## Developer Workflow
-
-Use this flow when you want to clone the repo, run the app, add data, and publish the latest database state for future fresh clones.
-
-Clone and start the project:
-
-```bash
-git clone https://github.gatech.edu/mfahad7/fhir-backend.git
-cd fhir-backend
-python3 -m venv backend/.venv
-backend/.venv/bin/pip install -r backend/requirements.txt
-cp backend/.env.example backend/.env
-docker compose up -d postgres
-backend/.venv/bin/python backend/run.py
-```
-
-What happens next:
-
-- If the PostgreSQL database is empty, the app seeds it automatically
-- You can then add more data through the API, through seed logic, or directly in PostgreSQL
-- That data stays persisted in your local Docker Postgres volume
-
-When you want to publish the current database state into GitHub for future fresh clones:
-
-```bash
-./backend/scripts/export_db_snapshot.sh
-git add backend/db/init/001_snapshot.sql
-git commit -m "Update database snapshot"
-git push
-```
-
-Important:
-
-- Your live local Postgres data is not pushed automatically
-- The export command updates the tracked SQL snapshot file
-- Future fresh clones can initialize from that committed snapshot
-
-
-Quick Demo:
-
-https://github.gatech.edu/user-attachments/assets/151479ff-50c7-43c7-800d-07c785f9fa29
-
-##
-
-
-## Internal vs External Demo Flow
-
-The backend now supports two patient modes:
-
-- `internal`: existing seeded clinical patients already have data and their charts load immediately
-- `external`: demo patients start empty and require `authorize -> import -> chart`
-
-Default empty-database seeding now includes both:
-
-- internal seeded patients with existing diabetes chart data
-- external demo patients:
-  - Alex Morgan
-  - Chris Walker
-  - Nina Patel
-  - Daniel Kim
-
-Useful demo scripts:
-
-```bash
-backend/.venv/bin/python backend/scripts/migrate_patient_origin.py
-backend/.venv/bin/python backend/scripts/seed_demo_patients.py
-backend/.venv/bin/python backend/scripts/demo_flow_test.py
-```
-<<<<<<< HEAD
-test
-=======
-
-## Epic Sandbox Demo
-
-The backend now supports a minimal real Epic sandbox authorization flow for two local external patients:
-
-- `nina.patel@patient.com` / `password123`
-- `chris.walker@patient.com` / `password123`
-
-Current scope:
-
-- Athena stays fully mocked
-- internal patients stay unchanged
-- Epic is used only for the authorize step right now
-- import and chart still use the existing local mock flow after authorization
-
-Local Epic env variables in `backend/.env`:
-
-```bash
-FRONTEND_APP_URL=http://localhost:3000
-EPIC_ENABLED=true
-EPIC_CLIENT_ID=your-non-production-client-id
-EPIC_CLIENT_SECRET=your-sandbox-client-secret
-EPIC_REDIRECT_URI=http://127.0.0.1:5000/auth/epic/callback
-EPIC_FHIR_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4
-EPIC_AUTH_BASE_URL=https://fhir.epic.com/interconnect-fhir-oauth/
-EPIC_DEMO_PATIENT_EMAILS=nina.patel@patient.com,chris.walker@patient.com
-```
-
-Local test flow:
-
-1. Log in as `nina.patel@patient.com`.
-2. Call `POST /patients/<nina_id>/authorize` with body `{"source":"epic"}`.
-3. Copy the returned `authorization_url` into a browser.
-4. Complete Epic sandbox login there.
-5. Epic redirects to the backend callback, which then redirects the browser back to `FRONTEND_APP_URL` with `epic=success`, `patient_id`, and `source=epic` query params.
-6. Verify the patient is now `authorized=true` and `source="epic"` using the existing patient/chart endpoints.
-##
->>>>>>> 894a6cc (Add Epic sandbox authorization flow)
+The common thread across the repository is healthcare interoperability: translating fragmented clinical data into standards-based representations that can support safer workflows, more useful dashboards, and better downstream analytics.

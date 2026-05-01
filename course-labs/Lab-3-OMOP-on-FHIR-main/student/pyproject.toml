@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cs6440-omop-cdm-lab"
+authors = ["Elizabeth Shivers <Elizabeth.Shivers@gtri.gatech.edu>", "Ronnie Jones<rjones92@gatech.edu>"]
+version = "0.1.0"
+description = ""
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+SQLAlchemy = "2.0.19"
+psycopg2-binary = "2.9.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ". src"

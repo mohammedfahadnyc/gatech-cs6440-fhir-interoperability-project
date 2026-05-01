@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "The patient has no known allergies based on the provided clinical note.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.2652652652652652,
+        "bert_score": 0.88795405626297,
+        "final_percentage": 88.795405626297
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "naproxen sodium 220 mg oral tablet",
+        "openai_answer": "The patient is currently taking naproxen sodium 220 mg oral tablets.",
+        "bleu_score": 0.3302232277439296,
+        "rouge_l_f_score": 0.5882352895501731,
+        "meteor_score": 0.4742857142857143,
+        "bert_score": 0.9255762696266174,
+        "final_percentage": 92.55762696266174
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "covid-19, mrna, lnp-s, pf, 30 mcg/0.3 ml dose",
+        "openai_answer": "The patient has received the following immunizations:\n- Covid-19 mRNA LNp-S PF, 30 mcg/0.3 ml dose.",
+        "bleu_score": 0.060729917228311864,
+        "rouge_l_f_score": 0.3846153800887574,
+        "meteor_score": 0.2611019736842105,
+        "bert_score": 0.8883532881736755,
+        "final_percentage": 88.83532881736755
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "Present Illness",
+        "openai_answer": "Primary Diagnosis: Not specified in the provided clinical note.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.8534051179885864,
+        "final_percentage": 25.60215353965759
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "physiotherapy care plan (record artifact) End of Clinical Note, Date of Clinical note Date: 2014-09-05 02:24:03 Doctor: Dr. Delicia67 Bernhard322 Organization: CAPE CO",
+        "openai_answer": "No procedures were conducted on the patient as per the provided clinical note. The patient was prescribed naproxen sodium 220 mg oral tablet and placed on a physiotherapy care plan.",
+        "bleu_score": 0.019236518243843596,
+        "rouge_l_f_score": 0.1666666617447918,
+        "meteor_score": 0.08722032612817597,
+        "bert_score": 0.823805570602417,
+        "final_percentage": 82.3805570602417
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "immunizations",
+        "openai_answer": "During the recent visit, the patient was given the following treatments:\n\n- Medication: naproxen sodium 220 mg oral tablet\n- Immunizations: influenza, seasonal, injectable, preservative free, td (adult), 5 lf tetanus toxoid, preservative free, adsorbed\n- Procedures:\n  - Medication reconciliation\n  - Assessment of health and social care needs\n  - Depression screening\n  - Depression screening using patient health questionnaire two-item score\n  - Assessment of substance use\n  - Assessment using alcohol use disorders identification test - consumption",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.7805941700935364,
+        "final_percentage": 23.417825102806088
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "History of Present Illness",
+        "openai_answer": "The patient's history of present illness indicates that Harrison106 is a 22-year-old male with a history of full-time employment and social isolation. The patient is married, quit smoking at age 17, and identifies as heterosexual. Harrison106 has no current insurance, comes from a middle socioeconomic background, and has a high school education. There are no known allergies, and the patient is not currently taking any medications.",
+        "bleu_score": 1.1324050979947305e-08,
+        "rouge_l_f_score": 0.036363635014876085,
+        "meteor_score": 0.06270903010033445,
+        "bert_score": 0.8441908955574036,
+        "final_percentage": 25.325726866722103
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "The patient was prescribed the following medications: - naproxen sodium 220 mg oral tablet The patient was placed on a careplan: - physiotherapy care plan (record artifact) End of Clinical Note, Date of",
+        "openai_answer": "Patient's vital information based on the provided clinical note:\n- Name: Harrison106\n- Age: 22 years old\n- Gender: Male\n- Ethnicity: Non-Hispanic\n- Marital Status: Married\n- Smoking History: Quit smoking at age 17\n- Sexual Orientation: Heterosexual\n- Socioeconomic Background: Middle class\n- Education: High school\n- Insurance Status: No Insurance\n- Allergies: No Known Allergies\n- Active Medications: naproxen sodium 220 mg oral tablet\n\nPlease note that vital signs such as blood pressure, heart rate, temperature, and respiratory rate are not provided in the clinical note.",
+        "bleu_score": 0.028808226341500036,
+        "rouge_l_f_score": 0.16326530204081643,
+        "meteor_score": 0.14556721969363284,
+        "bert_score": 0.8213716149330139,
+        "final_percentage": 82.13716149330139
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "No complaints.",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan are:\n- History of full-time employment\n- Social isolation\n- Middle socioeconomic background\n- High school education\n- No active medications\n- Naproxen sodium 220 mg oral tablet prescribed\n- Physiotherapy care plan prescribed",
+        "bleu_score": 8.4440777037909e-11,
+        "rouge_l_f_score": 0.0540540530314098,
+        "meteor_score": 0.012853470437017995,
+        "bert_score": 0.8238343596458435,
+        "final_percentage": 24.7150307893753
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "physiotherapy care plan (record artifact) End of Clinical Note, Date of Clinical note Date: 2014-09-05 02:24:03",
+        "openai_answer": "The patient was prescribed naproxen sodium 220 mg oral tablet and placed on a physiotherapy care plan. Follow-up care for the patient may include monitoring the response to the prescribed medication, assessing the effectiveness of the physiotherapy care plan, evaluating any improvements in symptoms or mobility, and addressing any new developments or concerns that may arise during the course of treatment. Additionally, given the patient's lack of insurance, it may be important to discuss potential financial assistance programs or resources for ongoing care.",
+        "bleu_score": 0.0006576902818731502,
+        "rouge_l_f_score": 0.10666666363022231,
+        "meteor_score": 0.04875491480996067,
+        "bert_score": 0.8034500479698181,
+        "final_percentage": 80.34500479698181
+    }
+}

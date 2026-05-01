@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "Medications No Active Medications. Assessment and Plan Plan Patient was given the following immunizations: hib (prp-omp), rotavirus, monovalent, ipv, dtap",
+        "openai_answer": "Based on the provided clinical note, the patient has no known allergies.",
+        "bleu_score": 0.013038525962482981,
+        "rouge_l_f_score": 0.06896551253269949,
+        "meteor_score": 0.1171875,
+        "bert_score": 0.8273416757583618,
+        "final_percentage": 82.73416757583618
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "Social History Patient has never smoked. Patient comes from a middle socioeconomic background. Patient currently has UnitedHealthcare. Allergies No Known Allergies. Medications ibuprofen 100 mg oral tablet",
+        "openai_answer": "The patient is currently taking ibuprofen 200 mg oral tablet.",
+        "bleu_score": 0.026798979835614675,
+        "rouge_l_f_score": 0.3030302988062443,
+        "meteor_score": 0.317948717948718,
+        "bert_score": 0.892044186592102,
+        "final_percentage": 89.2044186592102
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "The patient has received the following immunizations:\n- Influenza, seasonal, injectable, preservative free\n- TD (adult), 5 LF tetanus toxoid, preservative free, adsorbed",
+        "openai_answer": "The patient has received the following immunizations:\n- Influenza, seasonal, injectable, preservative free\n- TD (adult), 5 LF tetanus toxoid, preservative free, adsorbed",
+        "bleu_score": 1.0,
+        "rouge_l_f_score": 0.999999995,
+        "meteor_score": 0.999958905235473,
+        "bert_score": 1.0,
+        "final_percentage": 100.0
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "The patient's primary diagnosis is acute viral pharyngitis.",
+        "openai_answer": "The patient's primary diagnosis is acute viral pharyngitis.",
+        "bleu_score": 1.0,
+        "rouge_l_f_score": 0.999999995,
+        "meteor_score": 0.9990234375,
+        "bert_score": 1.0,
+        "final_percentage": 100.0
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "The procedure conducted was measurement of respiratory function.",
+        "openai_answer": "The procedures conducted on the patient include:\n\n1. Measurement of respiratory function\n\nThese procedures were part of the assessment and plan for the patient presenting with acute bronchitis.",
+        "bleu_score": 0.006952921587651714,
+        "rouge_l_f_score": 0.3225806413319459,
+        "meteor_score": 0.11538461538461536,
+        "bert_score": 0.905963122844696,
+        "final_percentage": 90.5963122844696
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "Treatments included a prescribed oral solution (acetaminophen, dextromethorphan HBr, doxylamine succinate) and a respiratory therapy care plan.",
+        "openai_answer": "During the recent visit, the following treatments were administered:\n\n1. The patient was prescribed an oral solution containing acetaminophen 21.7 mg/ml, dextromethorphan hydrobromide 1 mg/ml, and doxylamine succinate 0.417 mg/ml for symptomatic relief.\n\n2. The patient was placed on a care plan involving respiratory therapy to manage acute bronchitis.",
+        "bleu_score": 0.009320669190644408,
+        "rouge_l_f_score": 0.2622950780972857,
+        "meteor_score": 0.17440181890360532,
+        "bert_score": 0.8950981497764587,
+        "final_percentage": 89.50981497764587
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "Assessment and Plan Patient is presenting with medication review due (situation). Plan Patient was given the following immunizations: dtap. End of Clinical Note, Date of Clinical note Date: 2019-10-12 00:18:30",
+        "openai_answer": "The patient's history of present illness includes lack of access to transportation and stress.",
+        "bleu_score": 0.012238309496966717,
+        "rouge_l_f_score": 0.10256409811965832,
+        "meteor_score": 0.16025641025641027,
+        "bert_score": 0.8266663551330566,
+        "final_percentage": 82.66663551330566
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Vital information: male, 28 years old, nonhispanic white, single, never smoked, heterosexual, middle socioeconomic background, high school education, Medicaid insurance.",
+        "openai_answer": "The patient's vital information is as follows:\n- Gender: male\n- Age: 28 years old\n- Ethnicity: nonhispanic white\n- Marital Status: single\n- Smoking History: never smoked\n- Sexual Orientation: heterosexual\n- Socioeconomic Background: middle class\n- Education Level: high school\n- Insurance: Medicaid\n\nPlease note that there is no specific vital sign information such as blood pressure, heart rate, temperature, etc. provided in the clinical note.",
+        "bleu_score": 0.004522108554461397,
+        "rouge_l_f_score": 0.2133333294222223,
+        "meteor_score": 0.11772151898734177,
+        "bert_score": 0.8507843613624573,
+        "final_percentage": 85.07843613624573
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "Findings in the assessment and plan include hypertriglyceridemia, metabolic syndrome X, neuropathy due to type 2 diabetes mellitus, and social isolation.",
+        "openai_answer": "Findings mentioned in the patient's assessment and plan include:\n- Hypertriglyceridemia\n- Metabolic syndrome X\n- Neuropathy due to type 2 diabetes mellitus\n- Social isolation",
+        "bleu_score": 0.2061199465062312,
+        "rouge_l_f_score": 0.6046511578150352,
+        "meteor_score": 0.5436165577342047,
+        "bert_score": 0.9301770925521851,
+        "final_percentage": 93.0177092552185
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "Assessment and Plan Patient is presenting with medication review due (situation). Plan The following procedures were conducted: - medication reconciliation (procedure) End of Clinical Note, Date of Clinical note Date: 2019-04-13 00:18:",
+        "openai_answer": "The follow-up care planned for the patient includes:\n\n1. Continuing with the prescribed medication:\n   - ibuprofen 200 mg oral tablet\n\n2. Following the physiotherapy care plan as documented in the record artifact.\n\nIn addition to these, it is recommended to schedule a follow-up appointment or consultation to monitor the patient's progress and address any further concerns or developments.",
+        "bleu_score": 0.0058471549878258335,
+        "rouge_l_f_score": 0.10389609926800493,
+        "meteor_score": 0.09025270758122744,
+        "bert_score": 0.8181288242340088,
+        "final_percentage": 81.81288242340088
+    }
+}

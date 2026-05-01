@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "The patient has no known allergies.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.3289473684210526,
+        "bert_score": 0.9060786366462708,
+        "final_percentage": 90.60786366462708
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "No active Medications",
+        "openai_answer": "The patient is currently not taking any active medications.",
+        "bleu_score": 0.009811469683835549,
+        "rouge_l_f_score": 0.16666666291666676,
+        "meteor_score": 0.05952380952380952,
+        "bert_score": 0.8802481889724731,
+        "final_percentage": 88.02481889724731
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "hep b, adolescent or pediatric",
+        "openai_answer": "The patient has received the following immunizations: Hepatitis B (hep b) and adolescent or pediatric vaccines.",
+        "bleu_score": 0.03318663339192679,
+        "rouge_l_f_score": 0.2857142820861678,
+        "meteor_score": 0.19761372110365397,
+        "bert_score": 0.874163031578064,
+        "final_percentage": 87.4163031578064
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "Present Illness",
+        "openai_answer": "The patient's primary diagnosis is not specified in the provided clinical note.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.857293426990509,
+        "final_percentage": 25.718802809715267
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "- medication reconciliation (procedure) End of Clinical Note, Date of Clinical note",
+        "openai_answer": "The procedures conducted on the patient were medication reconciliation.",
+        "bleu_score": 0.020044994979069072,
+        "rouge_l_f_score": 0.21052631080332423,
+        "meteor_score": 0.053763440860215055,
+        "bert_score": 0.8682748675346375,
+        "final_percentage": 86.82748675346375
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "hep a, ped/adol",
+        "openai_answer": "The treatments administered during the recent visit on 2024-03-24 were as follows:\n\n1. Immunizations:\n   - Hib (PRP-OMP)\n   - Varicella\n   - MMR (Measles, Mumps, Rubella)\n   - Pneumococcal conjugate PCV 13\n   - Hepatitis A\n   - Ped/adol (Pediatric/Adolescent)\n   - 2 doses of unspecified immunization\n\n2. Procedures:\n   - Medication Reconciliation\n\nThese treatments were provided during the visit to address the medication review due.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.009363295880149813,
+        "bert_score": 0.7939449548721313,
+        "final_percentage": 23.81834864616394
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "No complaints",
+        "openai_answer": "The patient, Dorine689, is a newborn non-Hispanic white female who presents with no complaints. She has a history of never smoking and comes from a middle socioeconomic background. The patient currently has Medicaid coverage. There are no known allergies, and she is not taking any active medications. The patient received the following immunizations: Hep B and adolescent or pediatric vaccines. The reason for presentation is a medication review.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0350877186211142,
+        "meteor_score": 0.008143322475570033,
+        "bert_score": 0.8057187795639038,
+        "final_percentage": 24.171563386917114
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Social History",
+        "openai_answer": "The patient's vital information is as follows:\n- Name: Dorine689\n- Gender: Female\n- Ethnicity: Nonhispanic white\n- Age: Newborn\n- Smoking history: Never smoked\n- Socioeconomic background: Middle\n- Insurance: Medicaid\n- Allergies: No known allergies\n- Current medications: None\n- Immunizations received: Hepatitis B, adolescent or pediatric\n\nPlease note that specific vital signs such as heart rate, blood pressure, temperature, etc., are not provided in the clinical note.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.7980823516845703,
+        "final_percentage": 23.94247055053711
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "Patient was given the following immunizations: hep b, adolescent or pediatric.",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan include:\n- Patient is presenting with medication review due.\n- Patient was given the following immunizations: hep b, adolescent or pediatric.",
+        "bleu_score": 0.17776857282813785,
+        "rouge_l_f_score": 0.5789473643074793,
+        "meteor_score": 0.39131202023469897,
+        "bert_score": 0.9304574728012085,
+        "final_percentage": 93.04574728012085
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "- medication reconciliation (procedure)",
+        "openai_answer": "The follow-up care planned for the patient includes administering the following immunizations: ipv, influenza, seasonal, injectable, preservative free, dtap, pneumococcal conjugate pcv 13, and hep b. Additionally, medication reconciliation was conducted as a procedure.",
+        "bleu_score": 9.303927202616097e-05,
+        "rouge_l_f_score": 0.10810810617969324,
+        "meteor_score": 0.06048387096774194,
+        "bert_score": 0.8398104906082153,
+        "final_percentage": 83.98104906082153
+    }
+}

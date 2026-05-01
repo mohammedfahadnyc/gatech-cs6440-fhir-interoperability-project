@@ -1,0 +1,35 @@
+{
+  "resourceType" : "Observation",
+  "status" : "final",
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11557-6",
+      "display" : "Carbon dioxide in blood"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/1"
+  },
+  "effectiveDateTime" : "2013-04-02T10:30:10+01:00",
+  "valueQuantity" : {
+    "value" : 6.2,
+    "unit" : "kPa",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "kPa"
+  },
+  "referenceRange" : [{
+    "low" : {
+      "value" : 4.8,
+      "unit" : "kPa",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "kPa"
+    },
+    "high" : {
+      "value" : 6.0,
+      "unit" : "kPa",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "kPa"
+    }
+  }]
+}

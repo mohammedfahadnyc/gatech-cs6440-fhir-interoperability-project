@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies. Medications No Active Medications. Assessment and Plan",
+        "openai_answer": "The patient has No Known Allergies.",
+        "bleu_score": 0.12867201458772706,
+        "rouge_l_f_score": 0.4285714236734694,
+        "meteor_score": 0.3993055555555556,
+        "bert_score": 0.9193044900894165,
+        "final_percentage": 91.93044900894165
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "Active Medications",
+        "openai_answer": "Based on the information provided in the clinical note, the patient is currently not taking any active medications.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.03048780487804878,
+        "bert_score": 0.8594834208488464,
+        "final_percentage": 25.784502625465393
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "influenza, seasonal, injectable, preservative free, hpv, quadrivalent",
+        "openai_answer": "The patient has received the following immunizations:\n\n- Influenza, seasonal, injectable, preservative-free\n- HPV, quadrivalent",
+        "bleu_score": 0.028918637949073015,
+        "rouge_l_f_score": 0.28571428126984133,
+        "meteor_score": 0.3408450704225352,
+        "bert_score": 0.8678860068321228,
+        "final_percentage": 86.78860068321228
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "acute viral pharyngitis",
+        "openai_answer": "The patient's primary diagnosis is acute viral pharyngitis.",
+        "bleu_score": 0.04000002632824255,
+        "rouge_l_f_score": 0.5454545414876033,
+        "meteor_score": 0.25,
+        "bert_score": 0.9327481389045715,
+        "final_percentage": 93.27481389045715
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "medication reconciliation (procedure)",
+        "openai_answer": "The procedures conducted on the patient include:\n\n1. Medication reconciliation\n2. Depression screening\n3. Depression screening using Patient Health Questionnaire nine-item score\n4. Assessment of substance use\n5. Assessment using CAR, RELAX, ALONE, FORGET, FRIENDS, TROUBLE screening test\n6. Health risks education",
+        "bleu_score": 1.638682309719875e-07,
+        "rouge_l_f_score": 0.05128204986193298,
+        "meteor_score": 0.049212598425196846,
+        "bert_score": 0.833446741104126,
+        "final_percentage": 25.00340223312378
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "immunizations",
+        "openai_answer": "During the recent visit, the patient was administered the following treatments:\n\n- Immunizations: influenza, seasonal, injectable, preservative free, HPV quadrivalent\n- Procedures: \n  - Medication reconciliation\n  - Depression screening\n  - Depression screening using Patient Health Questionnaire nine item score\n  - Assessment of substance use\n  - Assessment using CARF, Relax, Alone, Forget, Friends, Trouble screening test\n  - Health risks education",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.7846488952636719,
+        "final_percentage": 23.539466857910156
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "history of medication review due (situation), acute viral pharyngitis (disorder). Social History",
+        "openai_answer": "The patient's history of present illness includes a history of medication review due to a certain situation and acute viral pharyngitis. There are no specific complaints mentioned in the note.",
+        "bleu_score": 0.08135963483208393,
+        "rouge_l_f_score": 0.41025640599605523,
+        "meteor_score": 0.26595744680851063,
+        "bert_score": 0.8984418511390686,
+        "final_percentage": 89.84418511390686
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "- medication reconciliation (procedure) - depression screening (procedure) - depression screening using patient health questionnaire nine item score (procedure) - assessment of substance use (procedure) ",
+        "openai_answer": "The patient's vital information based on the provided clinical note includes:\n\n- Allergies: No known allergies\n- Medications: No active medications\n- Immunizations received: Influenza, seasonal, injectable, preservative free, HPV quadrivalent\n- Procedures conducted: Medication reconciliation, depression screening, assessment of substance use, health risks education\n- Date of Clinical Note: August 25, 2023\n- Doctor: Dr. Joanna Abbott\n- Organization: Lahey Hospital & Medical Center, Burlington",
+        "bleu_score": 0.012821114831582324,
+        "rouge_l_f_score": 0.10666666316088902,
+        "meteor_score": 0.08077544426494346,
+        "bert_score": 0.8219845294952393,
+        "final_percentage": 82.19845294952393
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "risk activity involvement",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan are:\n1. Medication review due\n2. Risk activity involvement\n\nAdditionally, the following procedures were conducted for the patient:\n- Medication reconciliation\n- Depression screening\n- Depression screening using Patient Health Questionnaire nine-item score\n- Assessment of substance use\n- Assessment using CARF screening test\n- Health risks education\n\nThe patient also received the following immunizations:\n- Influenza, seasonal, injectable, preservative-free\n- HPV quadrivalent",
+        "bleu_score": 2.1732582148174614e-11,
+        "rouge_l_f_score": 0.07142857041454083,
+        "meteor_score": 0.045229561358593615,
+        "bert_score": 0.8280970454216003,
+        "final_percentage": 24.84291136264801
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "medication reconciliation",
+        "openai_answer": "The follow-up care planned for the patient includes:\n\n1. Immunizations given:\n   - Influenza\n   - Seasonal\n   - Injectable, preservative-free\n   - HPV quadrivalent\n\n2. Procedures conducted:\n   - Medication reconciliation\n   - Depression screening\n   - Depression screening using Patient Health Questionnaire Nine Item Score\n   - Assessment of substance use\n   - Assessment using CAR, Relax, Alone, Forget, Friends, Trouble screening test\n   - Health risks education\n\nThe patient is recommended to follow up for further monitoring and management as per the assessment and plan provided.",
+        "bleu_score": 1.2860313239151495e-18,
+        "rouge_l_f_score": 0.03278688461166354,
+        "meteor_score": 0.026297335203366058,
+        "bert_score": 0.8071371912956238,
+        "final_percentage": 24.214115738868713
+    }
+}

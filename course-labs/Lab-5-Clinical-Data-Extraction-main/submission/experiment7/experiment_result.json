@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "The patient does not have any known allergies.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.06666666666666667,
+        "bert_score": 0.8981935977935791,
+        "final_percentage": 26.94580793380737
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "ibuprofen 100 mg oral tablet",
+        "openai_answer": "The patient is currently taking ibuprofen 100 mg oral tablets.",
+        "bleu_score": 0.24601580968354606,
+        "rouge_l_f_score": 0.533333328888889,
+        "meteor_score": 0.4177631578947369,
+        "bert_score": 0.9257025122642517,
+        "final_percentage": 92.57025122642517
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "hib (prp-omp), rotavirus, monovalent, ipv, dtap, pneumococcal conjugate pcv 13.",
+        "openai_answer": "The patient has received the following immunizations:\n1. Hib (PRP-OMP) - Haemophilus influenzae type b\n2. Rotavirus\n3. Monovalent\n4. IPV - Inactivated Polio Vaccine\n5. DTaP - Diphtheria, Tetanus, and Acellular Pertussis Vaccine\n6. Pneumococcal conjugate PCV 13 - Pneumococcal conjugate vaccine\n\nThese immunizations were given during the current medical visit noted in the clinical record, dated 2018-11-10.",
+        "bleu_score": 0.0001746781864556328,
+        "rouge_l_f_score": 0.06557376775060479,
+        "meteor_score": 0.05834103512014787,
+        "bert_score": 0.8342103958129883,
+        "final_percentage": 25.026311874389645
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "sprain (morphologic abnormality)",
+        "openai_answer": "The patient's primary diagnosis is a sprain of the ankle.",
+        "bleu_score": 0.007030225231213686,
+        "rouge_l_f_score": 0.15384615029585808,
+        "meteor_score": 0.053763440860215055,
+        "bert_score": 0.8535232543945312,
+        "final_percentage": 85.35232543945312
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "- medication reconciliation (procedure) End of Clinical Note, Date of Clinical note Date: 2020-09-19 00:18:30 Doctor: Dr. Tyron580 Littel644 Organization: ST PATRICK'",
+        "openai_answer": "The procedures conducted on the patient on 2020-09-19 were medication reconciliation.",
+        "bleu_score": 0.014320472133097948,
+        "rouge_l_f_score": 0.13333332888888905,
+        "meteor_score": 0.08264462809917356,
+        "bert_score": 0.853950560092926,
+        "final_percentage": 85.3950560092926
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "ibuprofen 100 mg oral tablet Assessment and Plan Plan Patient was given the following immunizations: hep a, ped/adol, 2 dose. The following procedures were conducted: -",
+        "openai_answer": "During the recent visit on 2021-01-09, the following treatments were administered:\n\n1. Immunizations:\n   - Hepatitis A\n   - Ped/Adol, 2 dose\n\n2. Procedures:\n   - Medication reconciliation\n\nAdditionally, the patient is currently taking ibuprofen 100 mg oral tablets.",
+        "bleu_score": 0.08101840262984467,
+        "rouge_l_f_score": 0.3636363587173554,
+        "meteor_score": 0.3098055790363483,
+        "bert_score": 0.8767303228378296,
+        "final_percentage": 87.67303228378296
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "Social History",
+        "openai_answer": "The patient's history of present illness is that they are a 1 year-old non-Hispanic white female with a history of medication review due.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.023923444976076555,
+        "bert_score": 0.8303091526031494,
+        "final_percentage": 24.909274578094482
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Social History Patient has never smoked. Patient comes from a middle socioeconomic background. Patient currently has UnitedHealthcare. Allergies No Known Allergies. Medications ibuprofen 100 mg oral tablet",
+        "openai_answer": "Patient's Vital Info:\n\n- Name: Iva908\n- Age: 2 years old\n- Gender: Female\n- Ethnicity: Non-Hispanic White\n- Allergies: No known allergies\n- Medications: Ibuprofen 100 mg oral tablet\n- Insurance: UnitedHealthcare\n- Immunizations: Hep A, Ped/Adol (2 doses)\n- Procedures Conducted: Medication reconciliation\n- Doctor: Dr. Tyron580 Littel644\n\nPlease note that the information is based on the provided medical notes.",
+        "bleu_score": 0.025129502725830446,
+        "rouge_l_f_score": 0.1599999957475557,
+        "meteor_score": 0.14709296190777674,
+        "bert_score": 0.8376638293266296,
+        "final_percentage": 83.76638293266296
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "No Known Allergies. Medications No Active Medications. Assessment and Plan",
+        "openai_answer": "In the patient's assessment and plan, the following findings are mentioned:\n\n1. The patient was given the following immunizations: hib (prp-omp), rotavirus, monovalent, ipv, dtap, pneumococcal conjugate pcv 13.\n\nThe assessment and plan section seems to focus mainly on the immunizations provided to the patient.",
+        "bleu_score": 0.0007083549759233702,
+        "rouge_l_f_score": 0.0465116248783128,
+        "meteor_score": 0.07095046854082998,
+        "bert_score": 0.8235448598861694,
+        "final_percentage": 24.706345796585083
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "- medication reconciliation (procedure) End of Clinical Note, Date of Clinical note Date: 2019-04-13 00:18:30 Doctor: Dr. Hedwig986 Wiza601 Organization: CONCORD INTE",
+        "openai_answer": "There is no specific mention of follow-up care in the provided text. However, based on the information provided in the clinical note, since the patient is presenting with a medication review due situation, the planned follow-up care may involve reviewing and adjusting the patient's medications as needed. This might include monitoring the patient's response to any changes made during the medication reconciliation procedure and ensuring proper management of their health condition. It is important to consult with the treating healthcare provider for a detailed plan of follow-up care for the patient.",
+        "bleu_score": 0.0014031308400194906,
+        "rouge_l_f_score": 0.0714285678004537,
+        "meteor_score": 0.05702637773301949,
+        "bert_score": 0.8095285892486572,
+        "final_percentage": 24.285857677459717
+    }
+}

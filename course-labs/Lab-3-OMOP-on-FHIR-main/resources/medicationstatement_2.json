@@ -1,0 +1,18 @@
+{
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "861467",
+                "display": "Meperidine Hydrochloride 50 MG Oral Tablet"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/1"
+    },
+    "effectiveDateTime": "2014-01-23",
+    "dateAsserted": "2015-02-22"
+}

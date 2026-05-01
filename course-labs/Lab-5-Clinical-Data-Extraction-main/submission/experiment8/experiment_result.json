@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "Based on the clinical note provided, the patient has no known allergies.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.16891891891891891,
+        "bert_score": 0.8854232430458069,
+        "final_percentage": 88.54232430458069
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "ibuprofen 200 mg oral tablet; amoxicillin 250 mg / clavulanate 125 mg oral tablet",
+        "openai_answer": "The patient is currently taking ibuprofen 200 mg oral tablets and amoxicillin 250 mg / clavulanate 125 mg oral tablets.",
+        "bleu_score": 0.4558459331006228,
+        "rouge_l_f_score": 0.6666666618381345,
+        "meteor_score": 0.6659854816080035,
+        "bert_score": 0.9530025124549866,
+        "final_percentage": 95.30025124549866
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "influenza, seasonal, injectable, preservative free, hep a, adult",
+        "openai_answer": "The patient has received the following immunizations:\n1. Influenza, seasonal, injectable, preservative free\n2. Hepatitis A, adult\n\nThese immunizations were administered during the current medical visit at Emerson Hospital on May 12, 2023.",
+        "bleu_score": 0.007794021497123639,
+        "rouge_l_f_score": 0.19999999680000002,
+        "meteor_score": 0.19307832422586518,
+        "bert_score": 0.8512036800384521,
+        "final_percentage": 85.12036800384521
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "No",
+        "openai_answer": "The patient's primary diagnosis is not provided in the provided text.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.8187363743782043,
+        "final_percentage": 24.562091231346127
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "suture open wound",
+        "openai_answer": "The procedures conducted on the patient were:\n- Suturing of open wound\n\nAdditionally, the patient was prescribed the following medications:\n- Amoxicillin 250 mg / clavulanate 125 mg oral tablet\n- Ibuprofen 200 mg oral tablet\n\nThe patient was placed on a care plan for wound care.",
+        "bleu_score": 9.041323578974309e-08,
+        "rouge_l_f_score": 0.11428571271836736,
+        "meteor_score": 0.0352112676056338,
+        "bert_score": 0.8224897980690002,
+        "final_percentage": 82.24897980690002
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "ibuprofen 200 mg oral tablet; amoxicillin 250 mg / clavulanate 125 mg oral tablet",
+        "openai_answer": "During the recent visit, the following treatments have been administered:\n\nMedications:\n1. Ibuprofen 200 mg oral tablet\n2. Amoxicillin 250 mg / Clavulanate 125 mg oral tablet\n\nImmunizations:\n1. Influenza, seasonal, injectable, preservative-free\n2. Hepatitis A (Hep A), adult\n\nProcedures Conducted:\n1. Medication reconciliation\n2. Assessment of health and social care needs\n3. Screening for domestic abuse\n4. Depression screening\n5. Depression screening using Patient Health Questionnaire two-item score\n6. Assessment of substance use\n7. Assessment using Alcohol Use Disorders Identification Test - Consumption\n\nPlease note that these treatments were administered",
+        "bleu_score": 0.0013427913271982519,
+        "rouge_l_f_score": 0.16279069544348299,
+        "meteor_score": 0.15577828764641954,
+        "bert_score": 0.8569102883338928,
+        "final_percentage": 85.69102883338928
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "history of medication review due (situation), full-time employment (finding), social isolation (finding)",
+        "openai_answer": "The patient, Jed345, is a 34-year-old non-Hispanic Asian male with a history of medication review, full-time employment, and social isolation. He is single and has never smoked, identifying as heterosexual. He comes from a middle socioeconomic background, has completed some college courses, and currently has Blue Cross Blue Shield insurance. There are no known allergies or active medications. The patient is presenting as a victim of intimate partner abuse.",
+        "bleu_score": 0.0010404581594673566,
+        "rouge_l_f_score": 0.17910447467141904,
+        "meteor_score": 0.039494470774091635,
+        "bert_score": 0.8494526743888855,
+        "final_percentage": 84.94526743888855
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Social History",
+        "openai_answer": "The patient's vital information is as follows:\n- Age: Not specified\n- Sex: Not specified\n- Marital Status: Single\n- Smoking History: Never smoked\n- Sexual Orientation: Heterosexual\n- Socioeconomic Background: Middle class\n- Education: Completed some college courses\n- Insurance: Blue Cross Blue Shield\n- Allergies: No known allergies\n\nIf you need further details or analysis on any specific aspect of the patient's information, feel free to ask.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.799174964427948,
+        "final_percentage": 23.97524893283844
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "victim of intimate partner abuse",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan are as follows:\n\n1. Victim of intimate partner abuse\n2. Immunizations given: influenza, seasonal, injectable, preservative free\n3. Procedures conducted:\n   - Assessment of health and social care needs\n   - Assessment of anxiety\n   - Screening for domestic abuse\n   - Depression screening\n   - Depression screening using patient health questionnaire two-item score\n   - Depression screening using patient health questionnaire nine-item score\n   - Assessment of substance use\n   - Screening for drug abuse",
+        "bleu_score": 3.7274940553617886e-07,
+        "rouge_l_f_score": 0.1454545438016529,
+        "meteor_score": 0.053295128939828074,
+        "bert_score": 0.8307531476020813,
+        "final_percentage": 83.07531476020813
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "wound care",
+        "openai_answer": "The follow-up care planned for the patient includes wound care for the laceration of the thigh, taking ibuprofen 200 mg oral tablets for pain management, and suture removal for the open wound. It is important to ensure the wound is healing properly and to monitor for any signs of infection or complications. Additional follow-up appointments may be scheduled to assess the progress of healing and adjust the care plan as needed.",
+        "bleu_score": 2.3014185322584506e-16,
+        "rouge_l_f_score": 0.079999999232,
+        "meteor_score": 0.015600624024960999,
+        "bert_score": 0.8548715114593506,
+        "final_percentage": 25.646145343780518
+    }
+}

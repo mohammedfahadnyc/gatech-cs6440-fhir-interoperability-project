@@ -1,0 +1,156 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ml-fhir"
+version = "0.1.0"
+description = "FHIR Data Engineering with Neural Network Inference"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Lab 6 Team", email = "lab6@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+requires-python = ">=3.8.1"
+dependencies = [
+    "pandas>=2.0.0,<3.0.0",
+    "numpy>=1.20.0,<2.0.0",
+    "torch>=2.0.0,<3.0.0",
+    "scikit-learn>=1.0.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0,<8.0.0",
+    "pytest-cov>=4.0.0,<5.0.0",
+    "black>=23.0.0,<24.0.0",
+    "isort>=5.0.0,<6.0.0",
+    "flake8>=7.0.0,<8.0.0",
+    "mypy>=1.0.0,<2.0.0",
+]
+test = [
+    "pytest>=7.0.0,<8.0.0",
+    "pytest-cov>=4.0.0,<5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/lab-6-fhir-data-engineering"
+Repository = "https://github.com/example/lab-6-fhir-data-engineering.git"
+Issues = "https://github.com/example/lab-6-fhir-data-engineering/issues"
+
+[project.scripts]
+ml-fhir-demo = "ml_fhir.process:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ml_fhir"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/data",
+    "/models",
+    "/test",
+    "README.md",
+    "student_exercises.py",
+    "demo.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--tb=short",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["ml_fhir"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pandas.*",
+    "numpy.*",
+    "torch.*",
+    "sklearn.*",
+]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/test/*",
+    "*/tests/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+] 

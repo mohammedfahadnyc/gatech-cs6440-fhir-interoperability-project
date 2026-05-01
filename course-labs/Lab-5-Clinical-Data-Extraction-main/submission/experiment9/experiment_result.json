@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "The patient has No Known Allergies.",
+        "bleu_score": 0.07790941292260128,
+        "rouge_l_f_score": 0.6666666622222223,
+        "meteor_score": 0.3289473684210526,
+        "bert_score": 0.951097309589386,
+        "final_percentage": 95.1097309589386
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "The patient is currently taking amoxicillin 250 mg / clavulanate 125 mg oral tablet.",
+        "openai_answer": "The patient is currently taking amoxicillin 250 mg / clavulanate 125 mg oral tablet.",
+        "bleu_score": 1.0,
+        "rouge_l_f_score": 0.999999995,
+        "meteor_score": 0.9998177842565598,
+        "bert_score": 1.0,
+        "final_percentage": 100.0
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "The patient has received the following immunizations: Covid-19, mRNA, LNP-s, PF.",
+        "openai_answer": "The patient has received the following immunizations:\n\n1. Covid-19\n2. mRNA\n3. LNP-s\n4. PF\n\nThe doses administered were either 100 mcg/0.5ml or 50 mcg/0.25ml.",
+        "bleu_score": 0.15982698046126967,
+        "rouge_l_f_score": 0.38888888464506177,
+        "meteor_score": 0.2689380837080595,
+        "bert_score": 0.8981223106384277,
+        "final_percentage": 89.81223106384277
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "The patient's primary diagnosis is viral sinusitis.",
+        "openai_answer": "The patient's primary diagnosis is viral sinusitis.",
+        "bleu_score": 1.0,
+        "rouge_l_f_score": 0.999999995,
+        "meteor_score": 0.9985422740524781,
+        "bert_score": 1.0,
+        "final_percentage": 100.0
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "Procedures include assessment of health and social care needs, anxiety assessment, depression screening, PHQ-2 screening, substance use assessment, and drug abuse screening.",
+        "openai_answer": "The procedures conducted on the patient based on the provided clinical note are as follows:\n1. Assessment of health and social care needs\n2. Assessment of anxiety\n3. Depression screening\n4. Depression screening using patient health questionnaire two-item score\n5. Assessment of substance use\n6. Screening for drug abuse",
+        "bleu_score": 0.06236938460344613,
+        "rouge_l_f_score": 0.3793103404221166,
+        "meteor_score": 0.23419428220890257,
+        "bert_score": 0.8906503915786743,
+        "final_percentage": 89.06503915786743
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "ibuprofen 100 mg oral tablet Assessment and Plan Plan Patient was given the following immunizations: hep a, ped/adol, 2 dose. The following procedures were conducted: -",
+        "openai_answer": "The treatments administered during the recent visit include:\n\n- Immunizations: influenza, seasonal, injectable, preservative free\n- Procedures conducted:\n  - Assessment of health and social care needs\n  - Assessment of anxiety\n  - Depression screening\n  - Depression screening using Patient Health Questionnaire two-item score\n  - Assessment of substance use\n  - Screening for drug abuse",
+        "bleu_score": 0.01173522429811555,
+        "rouge_l_f_score": 0.19047618575963732,
+        "meteor_score": 0.09109311740890687,
+        "bert_score": 0.8132166862487793,
+        "final_percentage": 81.32166862487793
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "History of present illness: No complaints documented; no specific current symptoms recorded.",
+        "openai_answer": "The patient's history of present illness is not clearly documented in the provided text. The chief complaint is stated as \"No complaints,\" and there is no specific information regarding any current medical issues or symptoms the patient may be experiencing. The social history and other details provided focus on the patient's background, habits, and demographics rather than their present illness.",
+        "bleu_score": 0.00136870802609477,
+        "rouge_l_f_score": 0.20338982726802646,
+        "meteor_score": 0.09638247282608696,
+        "bert_score": 0.8835870027542114,
+        "final_percentage": 88.35870027542114
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Vital info: Jerrod232, 29 years old, non-Hispanic white, single, never smoked, alcoholic, heterosexual, high socioeconomic background, some college courses, uninsured.",
+        "openai_answer": "The patient's vital information is as follows:\n- Name: Jerrod232\n- Age: 29 years\n- Ethnicity: Non-Hispanic white\n- Marital status: Single\n- Smoking history: Never smoked\n- Alcohol consumption: Alcoholic\n- Sexual orientation: Heterosexual\n- Socioeconomic background: High\n- Education: Some college courses\n- Insurance status: None",
+        "bleu_score": 0.008088831402654099,
+        "rouge_l_f_score": 0.10344827134363872,
+        "meteor_score": 0.15227247896864415,
+        "bert_score": 0.8502487540245056,
+        "final_percentage": 85.02487540245056
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "The findings mentioned in the patient's assessment and plan are:\n1. Body mass index 30+ - obesity\n2. Victim of intimate partner abuse",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan are:\n1. Body mass index 30+ - obesity\n2. Victim of intimate partner abuse",
+        "bleu_score": 1.0,
+        "rouge_l_f_score": 0.999999995,
+        "meteor_score": 0.999958905235473,
+        "bert_score": 1.0000001192092896,
+        "final_percentage": 100.00001192092896
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "Follow-up care includes monitoring obesity, support for intimate partner abuse, continued assessments, and follow-up for anxiety, depression, and substance use screening.",
+        "openai_answer": "The follow-up care planned for the patient includes:\n\n1. Continued monitoring and management of obesity with a body mass index of 30+\n2. Follow-up and support for being a victim of intimate partner abuse\n3. Monitoring and addressing any immunization-related side effects\n4. Ongoing assessment and monitoring of health and social care needs\n5. Follow-up on anxiety assessment results\n6. Follow-up on depression screening results using the Patient Health Questionnaire two-item score\n7. Continued assessment and support for substance use issues\n8. Continued screening for drug abuse\n\nIt is important to provide comprehensive and personalized care for the patient's physical and mental health needs.",
+        "bleu_score": 0.0011440688347592793,
+        "rouge_l_f_score": 0.24444444111358027,
+        "meteor_score": 0.10022817904591304,
+        "bert_score": 0.8769205212593079,
+        "final_percentage": 87.69205212593079
+    }
+}

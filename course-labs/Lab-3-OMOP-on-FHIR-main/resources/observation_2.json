@@ -1,0 +1,16 @@
+{
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "5778-6",
+        "display": "Color of Urine"
+      } ]
+    },
+    "subject": {
+      "reference": "Patient/2"
+    },
+    "effectiveDateTime": "2178-05-28T19:40:00+00:00",
+    "valueString": "Yellow"
+  }

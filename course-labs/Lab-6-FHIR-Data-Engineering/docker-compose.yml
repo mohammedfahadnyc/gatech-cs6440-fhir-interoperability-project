@@ -1,0 +1,48 @@
+
+services:
+  fhir-lab:
+    build: .
+    container_name: fhir-data-engineering-lab
+    volumes:
+      # Mount the source code for development
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./test:/app/test
+      - ./demo.py:/app/demo.py
+      # Exclude virtual environment and other unnecessary files
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    command: bash
+
+  # Alternative service for running tests
+  fhir-lab-test:
+    build: .
+    container_name: fhir-lab-test
+    volumes:
+      - ./test:/app/test
+      - ./src:/app/src
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    command: uv run pytest test/ -v
+
+  # Alternative service for running the demo
+  fhir-lab-demo:
+    build: .
+    container_name: fhir-lab-demo
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./demo.py:/app/demo.py
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    command: python demo.py 

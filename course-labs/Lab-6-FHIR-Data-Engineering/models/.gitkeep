@@ -1,0 +1,3 @@
+# This file ensures the models directory is tracked in git
+# Pre-trained model files (*.pth, *.pt, *.pkl) are ignored
+# Instructors should run generate_model.py to create the model state dict 

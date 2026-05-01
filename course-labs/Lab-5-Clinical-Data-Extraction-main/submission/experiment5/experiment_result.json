@@ -1,0 +1,102 @@
+{
+    "question1": {
+        "question": "What allergies does the patient have? Answer correctly",
+        "model_answer": "No Known Allergies",
+        "openai_answer": "The patient has no known allergies.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.3289473684210526,
+        "bert_score": 0.9060786366462708,
+        "final_percentage": 90.60786366462708
+    },
+    "question2": {
+        "question": "What medications is the patient currently taking? Answer correctly",
+        "model_answer": "acetaminophen 325 mg oral tablet",
+        "openai_answer": "The patient is currently taking acetaminophen 325 mg oral tablets.",
+        "bleu_score": 0.24601580968354606,
+        "rouge_l_f_score": 0.533333328888889,
+        "meteor_score": 0.4177631578947369,
+        "bert_score": 0.9058365225791931,
+        "final_percentage": 90.58365225791931
+    },
+    "question3": {
+        "question": "What immunizations has the patient received? Answer correctly",
+        "model_answer": "influenza, seasonal, injectable, preservative free",
+        "openai_answer": "The patient has received the following immunizations:\n\n1. Influenza\n2. Seasonal\n3. Injectable\n4. Preservative free\n\nThese immunizations were administered as part of the patient's healthcare on the date of the clinical note, which is 2022-10-09.",
+        "bleu_score": 9.264288576000083e-05,
+        "rouge_l_f_score": 0.05405405171658155,
+        "meteor_score": 0.056990881458966566,
+        "bert_score": 0.8465909361839294,
+        "final_percentage": 25.397728085517883
+    },
+    "question4": {
+        "question": "What is the patient's primary diagnosis? Answer correctly",
+        "model_answer": "viral sinusitis",
+        "openai_answer": "The primary diagnosis for this patient is viral sinusitis.",
+        "bleu_score": 0.0020396629798258782,
+        "rouge_l_f_score": 0.363636360661157,
+        "meteor_score": 0.06024096385542168,
+        "bert_score": 0.9160493612289429,
+        "final_percentage": 91.60493612289429
+    },
+    "question5": {
+        "question": "What procedures were conducted on the patient? Answer correctly",
+        "model_answer": "assessment of health and social care needs (procedure)",
+        "openai_answer": "The procedures conducted on the patient include:\n1. Assessment of health and social care needs\n2. Assessment of anxiety\n3. Depression screening\n4. Depression screening using patient health questionnaire two-item score\n5. Assessment of substance use\n6. Assessment using alcohol use disorders identification test - consumption",
+        "bleu_score": 0.00588639654690325,
+        "rouge_l_f_score": 0.2790697644131963,
+        "meteor_score": 0.15040139278460202,
+        "bert_score": 0.8674079775810242,
+        "final_percentage": 86.74079775810242
+    },
+    "question6": {
+        "question": "What treatments have been administered during the recent visit? Answer correctly",
+        "model_answer": "acetaminophen 325 mg oral tablet",
+        "openai_answer": "The treatments administered during the recent visit include:\n\n1. Medication:\n- Acetaminophen 325 mg oral tablet\n\n2. Immunizations:\n- Influenza, seasonal, injectable, preservative-free\n\n3. Procedures conducted:\n- Assessment of health and social care needs\n- Assessment of anxiety",
+        "bleu_score": 0.0009097329363099553,
+        "rouge_l_f_score": 0.21052631350415515,
+        "meteor_score": 0.14351585014409218,
+        "bert_score": 0.83855801820755,
+        "final_percentage": 83.855801820755
+    },
+    "question7": {
+        "question": "What is the patient's history of present illness? Answer correctly",
+        "model_answer": "History of Present Illness",
+        "openai_answer": "The patient's history of present illness includes being a 28-year-old non-Hispanic black male presenting with prediabetes.",
+        "bleu_score": 0.0030386651123831088,
+        "rouge_l_f_score": 0.0999999968000001,
+        "meteor_score": 0.2681587837837837,
+        "bert_score": 0.8678686618804932,
+        "final_percentage": 86.78686618804932
+    },
+    "question8": {
+        "question": "What are the patient's vital info? Answer correctly",
+        "model_answer": "Social History",
+        "openai_answer": "The patient's vital information is as follows:\n- Social History:\n  - Marital Status: Married\n  - Smoking History: Never smoked\n  - Sexual Orientation: Heterosexual\n  - Socioeconomic Background: Middle class\n  - Education: Completed some college courses\n  - Insurance: Medicaid\n\n- Allergies: No Known Allergies\n\n- Medications: No Active Medications\n\n- Immunizations given:\n  - Influenza (seasonal, injectable, preservative free)\n  - Hepatitis A (adult)\n\n- Procedures Conducted:\n  - Assessment of health and social care needs\n  - Assessment of anxiety\n  - Depression screening\n  - Depression screening using patient health questionnaire two-item score",
+        "bleu_score": 2.3554485328430612e-20,
+        "rouge_l_f_score": 0.03030302971533518,
+        "meteor_score": 0.006369426751592356,
+        "bert_score": 0.797332763671875,
+        "final_percentage": 23.91998291015625
+    },
+    "question9": {
+        "question": "What findings are mentioned in the patient's assessment and plan? Answer correctly",
+        "model_answer": "",
+        "openai_answer": "The findings mentioned in the patient's assessment and plan include:\n- Immunizations given: influenza, seasonal, injectable, preservative free, hep a, adult\n- Procedures conducted:\n  - Assessment of health and social care needs\n  - Assessment of anxiety\n  - Depression screening\n  - Depression screening using patient health questionnaire two-item score\n  - Assessment of substance use\n  - Assessment using alcohol use disorders identification test - consumption\n\nThese are the specific findings documented in the patient's assessment and plan during the clinical note on July 12, 2018.",
+        "bleu_score": 0,
+        "rouge_l_f_score": 0.0,
+        "meteor_score": 0.0,
+        "bert_score": 0.0,
+        "final_percentage": 0.0
+    },
+    "question10": {
+        "question": "What follow-up care is planned for the patient? Answer correctly",
+        "model_answer": "hep a, adult",
+        "openai_answer": "The follow-up care planned for the patient includes monitoring of their immunizations, specifically influenza, seasonal, injectable, preservative-free, and hep A for adults. Additionally, the patient underwent several procedures including assessment of health and social care needs, assessment of anxiety, depression screening, assessment of substance use, and assessment using the alcohol use disorders identification test - consumption. This follow-up care aims to address the patient's overall health and well-being.",
+        "bleu_score": 2.8223395100612462e-11,
+        "rouge_l_f_score": 0.03773584798860807,
+        "meteor_score": 0.008130081300813009,
+        "bert_score": 0.7915219068527222,
+        "final_percentage": 23.745657205581665
+    }
+}
