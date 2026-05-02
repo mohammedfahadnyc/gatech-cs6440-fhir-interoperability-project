@@ -1,6 +1,6 @@
 # Georgia Tech CS6440 FHIR Interoperability Portfolio
 
-This repository is a portfolio collection for Georgia Tech CS6440: Introduction to Health Informatics. It combines a full-stack FHIR interoperability practicum project with the supporting course lab work on FHIR resources, SMART on FHIR, clinical data extraction, and health data engineering.
+This repository is a portfolio collection for Georgia Tech CS6440: Introduction to Health Informatics. It combines a full-stack FHIR interoperability practicum project with the supporting course lab work on FHIR resources, SMART on FHIR, clinical data extraction, and health data engineering. Includes EPIC integration for patient authorization and revoking access to their EHR data.
 
 ## Repository Layout
 
@@ -35,3 +35,6 @@ Sensitive live credentials, submission access details, and personally identifyin
 ## Theme
 
 The common thread across the repository is healthcare interoperability: translating fragmented clinical data into standards-based representations that can support safer workflows, more useful dashboards, and better downstream analytics.
+
+<img width="1259" height="696" alt="4" src="https://github.com/user-attachments/assets/d79cb410-8f4d-4791-8c49-d09531183e01" />
+
